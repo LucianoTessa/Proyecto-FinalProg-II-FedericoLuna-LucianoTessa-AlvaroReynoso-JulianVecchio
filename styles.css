@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --primary-color: #D1A217;
+  --secondary-color: #E4E4E7;
+  --border-color: #CBD5E1;
+  --text-muted: #525252;
+  --card-background: #262626;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.45rem;
+  --slide-height: 19rem;
+  --slide-spacing: 3rem;
+  --slide-size: 20%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  color: var(--color-text);
+}
+
+.embla {
+  max-width: 80rem;
+  margin: auto;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  margin-left: var(--slide-spacing);
+  /* background-color: red; */
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 970px;
+  }
+}
+
+/* Pantallas grandes */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+}
