@@ -79,3 +79,70 @@ body {
     max-width: 1400px;
   }
 }
+
+.info{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 1rem;
+  
+}
+.stats{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+  
+}
+.statsLeft{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 60%;
+  gap: 75px;
+  margin-top: 20px;
+  
+}
+.frames{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.mapArg{
+  width: 239px;
+  height: 503px;
+}
+.statsRight{
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+}
+.frameGold{
+  background-color: var(--primary-color);
+  
+}
+.frameBlack{
+  background-color: var(--card-background);
+  
+  
+}
+.textFrames{
+  padding-right: 2px;
+  font-size: smaller;
+  
+}
+.frame{
+  width: 200px;
+  border-radius: 10px;
+  padding: 25px 10px;
+  color: var(--secondary-color);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+}
+.textStats{
+  width: 45%;
+}
+.h1Stats{
+  margin-bottom: 10px;
+}
