@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-  --primary-color: #D1A217;
-  --secondary-color: #E4E4E7;
-  --border-color: #CBD5E1;
+  --primary-color: #d1a217;
+  --secondary-color: #e4e4e7;
+  --border-color: #cbd5e1;
   --text-muted: #525252;
   --card-background: #262626;
   --border-radius-sm: 0.25rem;
@@ -22,6 +22,132 @@
 .container {
   width: 100%;
   padding: 0 15px;
+}
+
+header {
+  box-shadow: 3px 1px 5px 1px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  margin: 0 auto;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88px;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #262626;
+}
+
+header button {
+  padding: 15px 30px;
+  color: white;
+  padding: 8px, 16px, 8px, 16px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+}
+
+.hero {
+  background-image: url("./img/hero-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.tittle {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
+  padding: 250px;
+  font-size: 50px;
+  color: white;
+}
+
+.inputsHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.buttons_Hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10px 10px 0px 10px;
+  border-radius: 15px 15px 0px 0px;
+  gap: 25px;
+}
+
+.buttons_Hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons_Hero button {
+  padding: 15px 30px;
+  border-radius: 9px;
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: white;
+  border: 1px solid rgb(223, 223, 223);
+}
+
+.Form_Buscar_Hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.Form_Buscar_Hero form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0px 15px 15px 15px;
+}
+
+.Form_Buscar_Hero input {
+  font-size: 17px;
+  font-family: sans-serif;
+  background-color: white;
+  align-items: center;
+  padding: 15px;
+  width: 550px;
+  border-radius: 10px;
+  border: 1px solid rgb(223, 223, 223);
+}
+
+.Form_Buscar_Hero button {
+  font-size: 18px;
+  background-color: var(--primary-color);
+  color: white;
+  align-items: center;
+  padding: 15px 30px;
+  border-radius: 9px;
+  border: none;
 }
 
 html {
@@ -232,28 +358,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Tablets */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 750px;
-    margin: 0 auto;
-  }
-}
-
-/* Desktops */
-@media screen and (min-width: 992px) {
-  .container {
-    max-width: 970px;
-  }
-}
-
-/* Pantallas grandes */
-@media screen and (min-width: 1200px) {
-  .container {
-    max-width: 1150px;
-  }
-}
-
 .info{
   display: flex;
   justify-content: space-evenly;
@@ -319,4 +423,26 @@ body {
 }
 .h1Stats{
   margin-bottom: 10px;
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 970px;
+  }
+}
+
+/* Pantallas grandes */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1150px;
+  }
 }
