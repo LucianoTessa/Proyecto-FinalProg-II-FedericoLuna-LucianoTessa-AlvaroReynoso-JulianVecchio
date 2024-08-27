@@ -1,74 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles.css">
-  <title>Document</title>
-</head>
-
-<body>
-  <header>
-    <div class="container">
-
-    </div>
-  </header>
-  <main>
-    <!-- Hero section -->
-    <section>
-      <div class="container">
-        <h1>Testeo numero 65</h1>
+  <body>
+    <header>
+      <div class="container header">
+        <div class="logo">
+          <img src="./img/logo.webp" />
+        </div>
+        <nav class="nav">
+          <a href="#">Vender</a>
+          <a href="#">Alquilar</a>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Publicar</a>
+          <a href="#">Favoritos</a>
+        </nav>
+        <a><button>Iniciar sesión</button></a>
       </div>
-    </section>
-    <!-- Carousel -->
-    <section>
-      <div class="embla container">
-        <div class="embla__viewport">
-          <div class="embla__container">
-            <div class="embla__slide">Slide 1</div>
-            <div class="embla__slide">Slide 2</div>
-            <div class="embla__slide">Slide 3</div>
-            <div class="embla__slide">Slide 4</div>
-            <div class="embla__slide">Slide 4</div>
-            <div class="embla__slide">Slide 4</div>
-            <div class="embla__slide">Slide 4</div>
-            <div class="embla__slide">Slide 4</div>
-            <div class="embla__slide">Slide 4</div>
+    </header>
+    <main>
+      <!-- Hero section -->
+      <section class="hero">
+        <div class="container tittle">
+          <h1>Encontrá tu futuro hogar</h1>
+          <div class="inputsHero">
+            <div class="buttons_Hero">
+              <button>Alquilar</button>
+              <button>Comprar</button>
+            </div>
+            <div class="Form_Buscar_Hero">
+              <form>
+                <input
+                  type="text"
+                  placeholder="Ingresá ubicación/barrio/localidad"
+                />
+                <button>Buscar</button>
+              </form>
+            </div>
           </div>
         </div>
-        <button class="embla__prev">Prev</button>
-        <button class="embla__next">Next</button>
-      </div>
-    </section>
-    <!-- Divider -->
-    <section></section>
-    <!-- Stats -->
-    <section>
-      <div class="container">
-      </div>
-    </section>
-    <!-- Contacto -->
-    <section>
-      <div class="container">
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="container"></div>
-  </footer>
-  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-  <script type="text/javascript">
-    const rootNode = document.querySelector('.embla')
-    const viewportNode = rootNode.querySelector('.embla__viewport')
+      </section>
+      <!-- Carousel -->
+      <section>
+        <div class="embla container">
+          <div class="embla__viewport">
+            <div class="embla__container">
+              <div class="embla__slide">Slide 1</div>
+              <div class="embla__slide">Slide 2</div>
+              <div class="embla__slide">Slide 3</div>
+              <div class="embla__slide">Slide 4</div>
+              <div class="embla__slide">Slide 4</div>
+              <div class="embla__slide">Slide 4</div>
+              <div class="embla__slide">Slide 4</div>
+              <div class="embla__slide">Slide 4</div>
+              <div class="embla__slide">Slide 4</div>
+            </div>
+          </div>
+          <button class="embla__prev">Prev</button>
+          <button class="embla__next">Next</button>
+        </div>
+      </section>
+      <!-- Divider -->
+      <section></section>
+      <!-- Stats -->
+      <section>
+        <div class="container"></div>
+      </section>
+      <!-- Contacto -->
+      <section>
+        <div class="container"></div>
+      </section>
+    </main>
+    <footer>
+      <div class="container"></div>
+    </footer>
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script type="text/javascript">
+      const rootNode = document.querySelector(".embla");
+      const viewportNode = rootNode.querySelector(".embla__viewport");
 
-    // Grab button nodes
-    const prevButtonNode = rootNode.querySelector('.embla__prev')
-    const nextButtonNode = rootNode.querySelector('.embla__next')
-    const embla = EmblaCarousel(viewportNode)
-    prevButtonNode.addEventListener('click', embla.scrollPrev, false)
-    nextButtonNode.addEventListener('click', embla.scrollNext, false)
-  </script>
-</body>
-
+      // Grab button nodes
+      const prevButtonNode = rootNode.querySelector(".embla__prev");
+      const nextButtonNode = rootNode.querySelector(".embla__next");
+      const embla = EmblaCarousel(viewportNode);
+      prevButtonNode.addEventListener("click", embla.scrollPrev, false);
+      nextButtonNode.addEventListener("click", embla.scrollNext, false);
+    </script>
+  </body>
 </html>
