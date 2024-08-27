@@ -12,4 +12,4 @@ Se trata de una pagina web donde las personas van a poder alquilar / vender sus 
 - [Luciano Tessa](https://github.com/LucianoTessa)
 - [Alvaro Reynoso](https://github.com/AlvaroReynoso)
 <!-- Cambiar el link -->
-- [Julian Vecchio](https://github.com/JulianVecchio)
+- [Julian Vecchio](https://github.com/julianvecchio1)

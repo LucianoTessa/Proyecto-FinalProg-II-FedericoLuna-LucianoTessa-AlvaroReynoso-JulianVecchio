@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <header>
-      <div class="container header">
-        <div class="logo">
-          <img src="./img/logo.webp" />
-        </div>
-        <nav class="nav">
-          <a href="#">Vender</a>
-          <a href="#">Alquilar</a>
-          <a href="#">Sobre nosotros</a>
-          <a href="#">Publicar</a>
-          <a href="#">Favoritos</a>
-        </nav>
-        <a><button>Iniciar sesión</button></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div class="container header">
+      <div class="logo">
+        <img src="./img/logo.webp" />
       </div>
-    </header>
-    <main>
-      <!-- Hero section -->
-      <section class="hero">
-        <div class="container tittle">
-          <h1>Encontrá tu futuro hogar</h1>
-          <div class="inputsHero">
-            <div class="buttons_Hero">
-              <button>Alquilar</button>
-              <button>Comprar</button>
-            </div>
-            <div class="Form_Buscar_Hero">
-              <form>
-                <input
-                  type="text"
-                  placeholder="Ingresá ubicación/barrio/localidad"
-                />
-                <button>Buscar</button>
-              </form>
+      <nav class="nav">
+        <a href="#">Vender</a>
+        <a href="#">Alquilar</a>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Publicar</a>
+        <a href="#">Favoritos</a>
+      </nav>
+      <a><button>Iniciar sesión</button></a>
+    </div>
+  </header>
+  <main>
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="container title">
+        <h1>Encontrá tu futuro hogar</h1>
+        <div class="inputsHero">
+          <div class="buttons_Hero">
+            <button>Alquilar</button>
+            <button>Comprar</button>
+          </div>
+          <div class="Form_Buscar_Hero">
+            <form>
+              <input type="text" placeholder="Ingresá ubicación/barrio/localidad" />
+              <button>Buscar</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- Carousel -->
     <section>
@@ -279,23 +280,25 @@
           <div class="statsLeft">
             <div class="textStats">
               <h1 class="h1Stats">¿Porqué elegirnos?</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum nulla vel nisi convallis sagittis. Nam cursus in libero semper fringilla. Nam at metus eget quam luctus consequat </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum nulla vel nisi convallis
+                sagittis. Nam cursus in libero semper fringilla. Nam at metus eget quam luctus consequat
+              </p>
             </div>
             <div class="frames">
               <div class="frameGold frame">
-                <h1>20k</h1>
+                <p class="frame_number">20k</p>
                 <p class="textFrames">Clientes Satisfechos</p>
               </div>
               <div class="frameBlack frame">
-                <h1>20k</h1>
+                <p class="frame_number">20k</p>
                 <p class="textFrames">Clientes Satisfechos</p>
               </div>
               <div class="frameBlack frame">
-                <h1>20k</h1>
+                <p class="frame_number">20k</p>
                 <p class="textFrames">Clientes Satisfechos</p>
               </div>
               <div class="frameBlack frame">
-                <h1>20k</h1>
+                <p class="frame_number">20k</p>
                 <p class="textFrames">Clientes Satisfechos</p>
               </div>
             </div>
@@ -345,12 +348,13 @@
   <script type="text/javascript">
     const rootNode = document.querySelector('.embla')
     const viewportNode = rootNode.querySelector('.embla__viewport')
-      // Grab button nodes
-      const prevButtonNode = rootNode.querySelector(".embla__prev");
-      const nextButtonNode = rootNode.querySelector(".embla__next");
-      const embla = EmblaCarousel(viewportNode);
-      prevButtonNode.addEventListener("click", embla.scrollPrev, false);
-      nextButtonNode.addEventListener("click", embla.scrollNext, false);
-    </script>
-  </body>
+    // Grab button nodes
+    const prevButtonNode = rootNode.querySelector(".embla__prev");
+    const nextButtonNode = rootNode.querySelector(".embla__next");
+    const embla = EmblaCarousel(viewportNode);
+    prevButtonNode.addEventListener("click", embla.scrollPrev, false);
+    nextButtonNode.addEventListener("click", embla.scrollNext, false);
+  </script>
+</body>
+
 </html>
