@@ -367,6 +367,59 @@ body {
   color: var(--text-muted);
 }
 
+.imgContDivider{
+  position: relative;
+  background-image: url("./img/stylish-scandinavian-living-room-with-design-mint-sofa-furnitures-mock-up-poster-map-plants-eleg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.shadow{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:  #493A0DB2;
+
+}
+
+.dividerText{
+  padding: 6em 0em;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+.headDivider{
+  font-size: 1.6em;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.paragraphDivider{
+  font-size: 1.1em;
+  font-weight: 400;
+  padding-right: 330px;
+  margin-bottom: 15px;
+
+}
+.buttonDivider{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.dividerButton{
+  padding: 15px 30px;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  
+}
+
 .info{
   display: flex;
   justify-content: space-between;
@@ -380,6 +433,7 @@ body {
   margin-top: 1rem;
   gap: 2rem;
 }
+
 
 .statsLeft{
   display: flex;
