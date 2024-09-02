@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #d1a217;
+  --secondary-color: #e4e4e7;
+  --border-color: #cbd5e1;
+  --text-muted: #525252;
+  --card-background: #262626;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.45rem;
+  --slide-height: 7rem;
+  --slide-spacing: 3rem;
+  --slide-size: 28%;
+}
