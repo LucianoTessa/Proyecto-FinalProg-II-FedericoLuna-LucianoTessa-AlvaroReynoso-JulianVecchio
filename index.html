@@ -4,24 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./global.css" />
   <title>Document</title>
 </head>
 
 <body>
   <header>
     <div class="container header">
-      <div class="logo">
+      <a href="/" class="logo">
         <img src="./img/logo.webp" />
-      </div>
+      </a>
       <nav class="nav">
-        <a href="#">Vender</a>
-        <a href="#">Alquilar</a>
-        <a href="#">Sobre nosotros</a>
-        <a href="#">Publicar</a>
-        <a href="#">Favoritos</a>
+        <a class="link" href="/views/buscar.html">Alquilar</a>
+        <a class="link" href="/views/publicar.html">Publicar</a>
+        <a class="link" href="/views/favoritos.html">Favoritos</a>
       </nav>
-      <a><button>Iniciar sesión</button></a>
+      <a href="/views/iniciar-sesion.html" class="button">Iniciar sesión</a>
     </div>
   </header>
   <main>
@@ -36,8 +34,8 @@
           </div>
           <div class="Form_Buscar_Hero">
             <form>
-              <input type="text" placeholder="Ingresá ubicación/barrio/localidad" />
-              <button>Buscar</button>
+              <input class="input" type="text" placeholder="Ingresá ubicación/barrio/localidad" />
+              <button class="button button_hero">Buscar</button>
             </form>
           </div>
         </div>
@@ -280,12 +278,10 @@
             nisi convallis sagittis. Nam cursus in libero semper fringilla. Nam at metus eget quam luctus consequat
             vitae id justo. Integer eu justo ante. Praesent luctus luctus turpis. Morbi nec nunc suscipit, interdum
             ipsum eget, dict</p>
-            <div class="buttonDivider">
-              <button class="dividerButton">Listar</button>
-            </div>
-          
+          <div class="buttonDivider">
+            <button class="button">Listar</button>
+          </div>
         </div>
-
         <div class="shadow"></div>
       </div>
     </section>
@@ -331,37 +327,38 @@
     <section>
       <div class="container contenedor-formulario">
         <!-- empezar aca -->
-         <div class="contenedor">
+        <div class="contenedor">
           <section>
             <h3 class="subtitulo-contacto">No dudes en consultar</h3>
-            <p class="parrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus tempore consequatur dolore deleniti nisi dolorem illum, facilis id veniam vel reprehenderit dicta itaque a atque, velit sed distinctio nostrum. Consequatur</p>
-          <h5 class="h5">Seguinos</h5>
-          <div>
-            <img src="./img/ig-icon-gold.svg" alt="">
-            <img src="./img/X-icon-gold.svg" alt="">
-          </div>
+            <p class="parrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus tempore consequatur
+              dolore deleniti nisi dolorem illum, facilis id veniam vel reprehenderit dicta itaque a atque, velit sed
+              distinctio nostrum. Consequatur</p>
+            <h5 class="h5">Seguinos</h5>
+            <div>
+              <img src="./img/ig-icon-gold.svg" alt="">
+              <img src="./img/X-icon-gold.svg" alt="">
+            </div>
           </section>
-         </div>
+        </div>
         <div>
-        <div class="form-container">
-          <h4 class="subtitulo-formulario">Formulario de contacto</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <form  class="formulario"  action="#" method="post" target="_blank">
+          <div class="form-container">
+            <h4 class="subtitulo-formulario">Formulario de contacto</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <form class="formulario" action="#" method="post" target="_blank">
 
 
 
-            <label for="email">Email:</label><br>
-            <input class="input" type="email" id="email" required placeholder="Email"><br>
-            <label for="name">Nombre:</label><br>
-            <input class="input" type="text" id="name" maxlength="30" placeholder="Nombre"><br>
-            <label for="mensaje">Your message</label><br>
-            <textarea class="input" name="mensaje" rows="10" cols="40" maxlength="300" placeholder="Type your message here"></textarea><br>
-            <div><button class="boton" type="submit">Enviar</button></div>
-
+              <label for="email">Email</label><br>
+              <input class="input" type="email" id="email" required placeholder="Email"><br>
+              <label for="name">Nombre</label><br>
+              <input class="input" type="text" id="name" maxlength="30" placeholder="Nombre"><br>
+              <label for="mensaje">Mensaje</label><br>
+              <textarea class="input" name="mensaje" rows="10" cols="40" maxlength="300"
+                placeholder="Escribe su mensaje"></textarea><br>
+              <button class="button button_form" type="submit">Enviar</button>
           </div>
-
-        </form>
-      </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
