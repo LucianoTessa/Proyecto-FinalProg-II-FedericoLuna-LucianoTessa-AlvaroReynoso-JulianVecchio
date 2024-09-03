@@ -1,0 +1,76 @@
+@import url(./variables.css);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.input{
+  font-family:"Inter", sans-serif;
+}
+
+main {
+  margin-left: 8%;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 8%;
+}
+
+hr {
+  opacity: 0.4;
+}
+
+small {
+  opacity: 0.8;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+select {
+  border: solid 1px rgb(221, 225, 230);
+  width: 100%;
+  padding: 3.3%;
+  font-size: 14px;
+  border-radius: var(--border-radius-md);
+}
+
+.mensaje {
+  grid-column: span 2;
+}
+
+.boton-subir {
+  font-size: 14px;
+  background-color: whitesmoke;
+  padding: 1% 7%;
+  border: solid 0.1px;
+  border-color: var(--border-color);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  margin: 2% 0%;
+}
+
+.boton-subir:hover {
+  opacity: .8;
+  
+}
+
+.boton-subir:active {
+  opacity: .8;
+}
+
+.button-publi {
+  margin-top: 3%;
+}
+
+.contenedor-formu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.4fr 0.4fr 0.4fr 0.8fr;
+  padding: 1%;
+  column-gap: 7%;
+}
