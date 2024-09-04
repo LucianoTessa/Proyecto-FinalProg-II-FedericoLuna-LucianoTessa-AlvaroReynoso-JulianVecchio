@@ -74,11 +74,11 @@ header {
 }
 
 .button:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .button:active {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .input {
@@ -154,7 +154,7 @@ header {
   border-radius: 0px 15px 15px 15px;
 }
 
-.button_hero{
+.button_hero {
   font-size: 20px;
 }
 
@@ -182,7 +182,7 @@ body {
   gap: 1.2em;
 }
 
-.footer_logo{
+.footer_logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,12 +192,12 @@ body {
   width: 80px;
 }
 
-.footer_logo_title{
+.footer_logo_title {
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.footer_list{
+.footer_list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,13 +205,13 @@ body {
   gap: 1em;
 }
 
-.separator{
+.separator {
   width: 100%;
   height: 1px;
   background-color: var(--border-color);
 }
 
-.footer_copy{
+.footer_copy {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -227,7 +227,7 @@ body {
   gap: 1em;
 }
 
-.footer_list_item{
+.footer_list_item {
   color: var(--text-muted);
 }
 
@@ -260,40 +260,38 @@ body {
 
 /*mio july*/
 
-.contenedor-formulario{
+.contenedor-formulario {
   display: flex;
   align-items: center;
   gap: 2em;
   width: 100%;
- justify-content: space-between;
+  justify-content: space-between;
 }
-.contenedor{
+.contenedor {
   width: 50%;
 }
-.form-container{
+.form-container {
   border: 1px solid var(--border-color);
   padding: 2em;
   border-radius: var(--border-radius-md);
   width: 100%;
 }
-.subtitulo-formulario{
+.subtitulo-formulario {
   font-size: 2em;
 }
-.subtitulo-contacto{
+.subtitulo-contacto {
   font-size: 3em;
 }
 .button_form {
   width: 100%;
-  padding: 12px 0 ;
+  padding: 12px 0;
 }
 
-
-
-.h5{
+.h5 {
   font-size: 1em;
 }
 
-.parrafo{
+.parrafo {
   margin-bottom: 5%;
 }
 
@@ -320,7 +318,7 @@ body {
   margin-left: var(--slide-spacing);
 }
 
-.carousel_button{
+.carousel_button {
   background-color: var(--primary-color);
   color: white;
   border: none;
@@ -340,7 +338,7 @@ body {
   overflow: hidden;
 }
 
-.like_button{
+.like_button {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -353,35 +351,35 @@ body {
   align-items: center;
 }
 
-.like_button:hover > .like_button_hearth > path{
+.like_button:hover > .like_button_hearth > path {
   stroke: var(--primary-color);
 }
 
-.listing_card_img{
+.listing_card_img {
   width: 100%;
   object-fit: cover;
 }
 
-.card_data{
+.card_data {
   padding: 1em;
   display: flex;
-  gap: .7em;
+  gap: 0.7em;
   flex-direction: column;
 
 }
 
-.card_direction{
+.card_direction {
   font-size: 1.1rem;
   font-weight: 600;
-  line-height: 1.3em;
+  line-height: 0.9em;
 }
 
-.card_city{
+.card_city {
   font-size: 0.9rem;
   color: var(--text-muted);
 }
 
-.card_type{
+.card_type {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
@@ -389,28 +387,28 @@ body {
 .card_price {
   font-size: 1.6rem;
   font-weight: 700;
-  line-height: .9em;
+  line-height: 0.9em;
 }
 
-.card_stats{
+.card_stats {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card_stats_item{
+.card_stats_item {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.2em;
 }
 
-.stats_item_p{
+.stats_item_p {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
 
-.imgContDivider{
+.imgContDivider {
   position: relative;
   background-image: url("./img/stylish-scandinavian-living-room-with-design-mint-sofa-furnitures-mock-up-poster-map-plants-eleg.jpg");
   background-size: cover;
@@ -418,58 +416,54 @@ body {
   background-position: bottom;
 }
 
-.shadow{
+.shadow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color:  #493A0DB2;
-
+  background-color: #493a0db2;
 }
 
-.dividerText{
+.dividerText {
   padding: 6em 0em;
   color: white;
   z-index: 1;
   position: relative;
 }
-.headDivider{
+.headDivider {
   font-size: 1.6em;
   font-weight: 700;
   margin-bottom: 15px;
 }
-.paragraphDivider{
+.paragraphDivider {
   font-size: 1.1em;
   font-weight: 400;
   padding-right: 330px;
   margin-bottom: 15px;
-
 }
-.buttonDivider{
+.buttonDivider {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
 }
 
-.dividerButton{
+.dividerButton {
   padding: 15px 30px;
   color: white;
   background-color: var(--primary-color);
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  
 }
 
-.info{
+.info {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.stats{
+.stats {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -477,8 +471,7 @@ body {
   gap: 2rem;
 }
 
-
-.statsLeft{
+.statsLeft {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -487,42 +480,43 @@ body {
   gap: 3em;
   margin-top: 20px;
 }
-.frames{
+.frames {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.mapArg{
+.mapArg {
   /* width: 239px; */
   height: 550px;
 }
 
-.statsRight{
+.statsRight {
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.frameGold{
+.frameGold {
   background-color: var(--primary-color);
 }
 
-.frameBlack{
+.frameBlack {
   background-color: var(--card-background);
 }
 
-.textFrames{
+.textFrames {
   padding-right: 2px;
   font-size: smaller;
 }
 
-.frame{
+.frame {
   width: 20em;
   border-radius: 10px;
   padding: 38px 20px;
   color: white;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.3);
 }
 
 .frame_number {
@@ -530,11 +524,11 @@ body {
   font-weight: 700;
 }
 
-.textStats > p{
+.textStats > p {
   color: var(--text-muted);
 }
 
-.h1Stats{
+.h1Stats {
   margin-bottom: 10px;
   font-size: 3em;
 }
