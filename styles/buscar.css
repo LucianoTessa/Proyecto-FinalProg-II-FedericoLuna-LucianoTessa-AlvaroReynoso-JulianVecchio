@@ -1,0 +1,91 @@
+@import url("./variables.css");
+
+main {
+  padding-top: 100px;
+  min-height: 90vh;
+}
+
+.filters_form{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.card_container {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5em;
+}
+
+.card{
+  border: 1px solid var(--border-color);
+  display: flex;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.card_img{
+  width: 410px;
+  object-fit: cover;
+}
+
+.card_header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.data_descripcion{
+  color: var(--text-muted);
+}
+
+.data_precio{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.data_direccion{
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1em;
+}
+
+.data_ciudad {
+  font-size: .9em;
+  color: var(--text-muted);
+}
+
+.card_like_button{
+  border: 1px solid var(--border-color);
+  background-color: white;
+  padding: .9em;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_like_button:hover > .like_button_hearth > path{
+  stroke: var(--primary-color);
+}
+
+.card_link{
+  text-decoration: none;
+  color: black;
+}
+
+.card_link:hover > .card{
+  box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.card_link:visited{
+  color: black;
+}

@@ -1,17 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../global.css" />
-    <title>Real state - Publicar</title>
-    <link rel="stylesheet" href="../styles/Iniciar-sesion.css" />
-  </head>
-
-  <body>
-    <div class="container">
-      <!-- empezar aca -->
-      publicar
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="../styles/publicacion.css">
+  <title>Real state - Publicar</title>
+</head>
+<body>
+  <header>
+    <div class="container header">
+      <a href="/" class="logo">
+        <img src="../img/logo.webp" />
+      </a>
+      <nav class="nav">
+        <a class="link" href="./buscar.html">Alquilar</a>
+        <a class="link" href="./publicar.html">Publicar</a>
+        <a class="link" href="./favoritos.html">Favoritos</a>
+      </nav>
+      <a href="./iniciar-sesion.html" class="button">Iniciar sesión</a>
     </div>
-  </body>
+  </header>
+  <!-- empezar aca -->
+  <main>
+    <h1>Publicar mi propiedad</h1>
+    <hr>
+    <form class="formulario" action="#" method="post" target="_blank">
+      <div class="contenedor-formu">
+        <div>
+          <label for="titulo">Titulo</label><br>
+          <input class="input" type="text" id="titulo" placeholder="Casa comoda con jardin"><br>
+          <small>Escribe una breve descripción de su propiedad</small><br>
+        </div>
+        
+        <div>
+          <label for="precio">Precio</label><br>
+          <input class="input" type="text" id="precio" placeholder="200000"><br>
+          <small>En caso de alquiler.Escriba el monto del mes</small><br>
+        </div>
+        
+        <div>
+          <label for="propiedad">Tipo de propiedad</label><br>
+          <select name="propiedad" id="propiedad" required>
+            <option value="otros" disabled selected>Seleccionar el tipo</option>
+            <option value="casa">Casa</option>
+            <option value="departamento">Departamento</option>
+          </select><br>
+          <small>Tipo de propiedad</small><br>
+        </div>
+        
+        <div>
+          <label for="venta">Venta/Alquiler</label><br>
+          <select name="venta" id="venta" required>
+            <option value="otros" disabled selected>Seleccionar el tipo</option>
+            <option value="venta">Venta</option>
+            <option value="alquiler">Alquiler</option>
+          </select><br>
+          <small>Que desea hacer con su propiedad</small><br>
+        </div>
+        
+        <div>
+          <label for="baños">Baños</label><br>
+          <input class="input" type="text" id="baños" placeholder="1"><br>
+        </div>
+        
+        <div>
+          <label for="habitaciones">Habitaciones</label><br>
+          <input class="input" type="text" id="habitaciones" placeholder="1"><br>
+        </div>
+        
+        <div>
+          <label for="metros">Metros cuadrados</label><br>
+          <input class="input" type="text" id="metros" placeholder="120"><br>
+          <small>Tamaño en metros cuadrados de su propiedad</small><br>
+        </div>
+
+        <div>
+          <label for="ciudad">Ciudad</label><br>
+          <input class="input" type="text" id="ciudad" placeholder="Rosario"><br>
+          <small>Ciudad en donde esta su propiedad</small><br>
+        </div>
+
+        <div>
+          <label for="direccion">Dirección</label><br>
+          <input class="input" type="text" id="direccion" placeholder="San Martin 123"><br>
+          <small>Dirección de donde está su propiedad</small><br>
+        </div>
+
+        <div class="mensaje">
+          <label for="mensaje">Descripción</label><br>
+          <textarea class="input" name="mensaje" rows="10" cols="40" maxlength="300"
+            placeholder="Type your message here"></textarea><br>
+          <small>Describa su propiedad lo mas detalladamete posible</small><br>
+          <label class="label-img" for="imagenes">Imagenes</label><br>
+          <button class="boton-subir" type="submit">Subir archivo</button><br>
+          <small>Imágenes de su propiedad</small><br>
+          <button class="button-publi button" type="submit">Publicar</button>
+        </div>
+    </form>
+    </div>
+  </main>
+  <footer>
+    <div class="container footer_container">
+      <div class="footer_logo">
+        <img class="footer_logo_img" src="../img/logo.webp" alt="Logo">
+        <p class="footer_logo_title">Real state</p>
+      </div>
+      <div class="footer_nav">
+        <ul class="footer_list">
+          <li class="footer_list_item"><a class="footer_list_a" href="#">Home</a></li>
+          <li class="footer_list_item"><a class="footer_list_a" href="#">Vender</a></li>
+          <li class="footer_list_item"><a class="footer_list_a" href="#">Comprar</a></li>
+        </ul>
+      </div>
+      <div class="separator"></div>
+      <div class="footer_copy">
+        <p>© Copyright 2024. Todos los derechos reservados</p>
+        <div class="footer_socials">
+          <a class="socials_a" href="#">
+            <img class="socials_img" src="./img/ig-icon-black.svg" alt="">
+          </a>
+          <a class="socials_a" href="#">
+            <img class="socials_img" src="./img/x-icon-black.svg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

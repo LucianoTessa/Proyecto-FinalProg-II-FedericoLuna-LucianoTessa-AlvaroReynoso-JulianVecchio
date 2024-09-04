@@ -40,7 +40,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 88px;
+  height: 80px;
 }
 
 .logo img {
@@ -179,7 +179,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.2em;
 }
 
 .footer_logo {
@@ -365,6 +365,7 @@ body {
   display: flex;
   gap: 0.7em;
   flex-direction: column;
+
 }
 
 .card_direction {
