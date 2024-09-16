@@ -258,8 +258,6 @@ body {
   margin-bottom: 1.3em;
 }
 
-/*mio july*/
-
 .contenedor-formulario {
   display: flex;
   align-items: center;
@@ -294,8 +292,6 @@ body {
 .parrafo {
   margin-bottom: 5%;
 }
-
-/*fin mio july*/
 
 .embla {
   margin: auto;
@@ -336,6 +332,9 @@ body {
   border-radius: var(--border-radius-md);
   position: relative;
   overflow: hidden;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
 }
 
 .like_button {
@@ -357,6 +356,7 @@ body {
 
 .listing_card_img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -487,7 +487,6 @@ body {
 }
 
 .mapArg {
-  /* width: 239px; */
   height: 550px;
 }
 
