@@ -19,7 +19,6 @@ main {
 }
 
 .inicioSesion {
-  border: 1px solid gray;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -30,6 +29,10 @@ main {
   margin-top: 150px;
   border: 1px solid rgba(187, 187, 187, 0.812);
   border-radius: 10px;
+}
+
+#form-iniciar-sesion{
+  max-width: 350px;
 }
 
 .h1-subtitulo {
@@ -89,7 +92,8 @@ main {
 }
 
 .iniciar-sesion {
-  padding: 10px 137px;
+  padding: 12.5px;
+  width: 100%;
   margin-top: 15px;
 }
 

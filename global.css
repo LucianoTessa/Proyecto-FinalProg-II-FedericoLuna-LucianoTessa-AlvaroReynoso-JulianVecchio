@@ -272,7 +272,7 @@ body {
   border: 1px solid var(--border-color);
   padding: 2em;
   border-radius: var(--border-radius-md);
-  width: 100%;
+  width: 50%;
 }
 .subtitulo-formulario {
   font-size: 2em;
@@ -283,6 +283,23 @@ body {
 .button_form {
   width: 100%;
   padding: 12px 0;
+}
+
+.descripcion-formulario {
+  color: var(--text-muted);
+}
+
+#formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: .3em;
+}
+
+.form-error {
+  color: red;
+  font-size: .8em;
+  line-height: 1.3em;
+  margin-top: .2em;
 }
 
 .h5 {
@@ -461,6 +478,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.redes {
+  display: flex;
+  gap: 1em;
+  align-items: center;
 }
 
 .stats {
