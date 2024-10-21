@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-@import url(./styles/variables.css);
+@import url(./variables.css);
 
 * {
   padding: 0;
@@ -89,7 +89,7 @@ header {
 }
 
 .hero {
-  background-image: url("./img/hero-bg.webp");
+  background-image: url("../static/images/hero-bg.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
