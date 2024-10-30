@@ -1,8 +1,7 @@
 @import url("./variables.css");
 
-main {
-  padding-top: 100px;
-  min-height: 90vh;
+.filters {
+  margin-top: 105px;
 }
 
 .filters_form{

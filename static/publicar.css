@@ -1,21 +1,15 @@
 @import url(./variables.css);
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-.input{
-  font-family:"Inter", sans-serif;
+.main-publicar {
+  margin-top: 6em;
 }
 
-main {
-  margin-left: 8%;
-}
-
-h1 {
+.main-publicar > h1 {
   font-size: 3em;
-  margin-top: 8%;
+}
+
+.title {
+  font-size: 3em;
 }
 
 hr {
@@ -69,8 +63,9 @@ select {
 
 .contenedor-formu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.4fr 0.4fr 0.4fr 0.8fr;
-  padding: 1%;
-  column-gap: 7%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 2em;
+  row-gap: 3em;
+  margin-top: 2em;
 }

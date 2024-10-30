@@ -2,15 +2,11 @@
 
 .titleFav{
     margin-bottom: 5px;
+    margin-top: 90px;
     font-size: 2.5em;
 }
 
-body{
-    min-height: 100vh;
-    padding-top: 100px;
-}
-
-.main{
+.main-favoritos{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     justify-content: center;

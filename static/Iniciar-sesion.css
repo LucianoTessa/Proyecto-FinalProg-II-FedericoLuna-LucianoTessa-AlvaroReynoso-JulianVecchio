@@ -1,21 +1,7 @@
 @import url(./styles/variables.css);
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  flex-direction: column;
-}
-
-main {
-  margin-bottom: 60px;
+.main-inicio-sesion {
+  min-height: 80vh;
 }
 
 .inicioSesion {
@@ -116,15 +102,6 @@ main {
   font-weight: 600;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: auto;
-  gap: 30px;
-}
-
 .logo {
   display: flex;
   justify-content: center;
@@ -152,13 +129,4 @@ main {
 .rectangulo {
   border-top: 1px solid gray;
   padding-top: 20px;
-}
-
-.info-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  gap: 950px;
-  margin-bottom: 30px;
 }

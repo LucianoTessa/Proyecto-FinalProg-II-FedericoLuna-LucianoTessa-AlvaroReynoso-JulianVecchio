@@ -1,427 +1,480 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='./global.css')}}" />
-  <title>Real state - Encontrá tu futura vivienda</title>
-</head>
-
-<body>
-  <header>
-    <div class="container header">
-      <a href="/" class="logo">
-        <img src="{{ url_for('static', filename='images/logo.webp')}}" />
-      </a>
-      <nav class="nav">
-        <a class="link" href="/views/buscar.html">Alquilar</a>
-        <a class="link" href="/views/publicar.html">Publicar</a>
-        <a class="link" href="/views/favoritos.html">Favoritos</a>
-      </nav>
-      <a href="/views/iniciar-sesion.html" class="button">Iniciar sesión</a>
-    </div>
-  </header>
-  <main>
-    <!-- Hero section -->
-    <section class="hero">
-      <div class="container title">
-        <h1>Encontrá tu futuro hogar</h1>
-        <div class="inputsHero">
-          <div class="buttons_Hero">
-            <button>Alquilar</button>
-            <button>Comprar</button>
-          </div>
-          <div class="Form_Buscar_Hero">
-            <form>
-              <input class="input" type="text" placeholder="Ingresá ubicación/barrio/localidad" />
-              <button class="button button_hero">Buscar</button>
-            </form>
-          </div>
+{% extends "layout.html" %} {% block titulo %} Real state - Página principal {%
+endblock %} {% block content %}
+<main>
+  <!-- Hero section -->
+  <section class="hero">
+    <div class="container title">
+      <h1>Encontrá tu futuro hogar</h1>
+      <div class="inputsHero">
+        <div class="buttons_Hero">
+          <button>Alquilar</button>
+          <button>Comprar</button>
         </div>
-      </div>
-    </section>
-    <!-- Carousel -->
-    <section>
-      <div class="container">
-        <h1 class="carousel_title">Propiedades destacadas</h1>
-        <div class="embla">
-          <button class="embla__prev carousel_button">
-            <img src="./img/arrow-left.svg" alt="Arrow left" />
-          </button>
-          <div class="embla__viewport">
-            <div class="embla__container">
-              <div class="embla__slide listing_card">
-                <img class="listing_card_img" src="./img/house-14.webp" alt="House 1" />
-                <button class="like_button">
-                  <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <div class="card_data">
-                  <div class="card_info">
-                    <p class="card_type">Casa en venta</p>
-                    <p class="card_price">USD 465.000</p>
-                  </div>
-                  <div class="card_location">
-                    <p class="card_direction">Riccheri 1030</p>
-                    <p class="card_city">Funes</p>
-                  </div>
-                  <div class="card_stats">
-                    <div class="card_stats_item">
-                      <img src="./img/icono-banios.svg" alt="" />
-                      <p class="stats_item_p">2 baño</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-planos.svg" alt="" />
-                      <p class="stats_item_p">6 habs</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-m2.svg" alt="" />
-                      <p class="stats_item_p">230m2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="embla__slide listing_card">
-                <img class="listing_card_img" src="./img/house-12.webp" alt="House 1" />
-                <button class="like_button">
-                  <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <div class="card_data">
-                  <div class="card_info">
-                    <p class="card_type">Departamento en alquiler</p>
-                    <p class="card_price">$ 350.000</p>
-                  </div>
-                  <div class="card_location">
-                    <p class="card_direction">Boulevard Oroño 1450</p>
-                    <p class="card_city">Rosario</p>
-                  </div>
-                  <div class="card_stats">
-                    <div class="card_stats_item">
-                      <img src="./img/icono-banios.svg" alt="" />
-                      <p class="stats_item_p">1 baño</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-planos.svg" alt="" />
-                      <p class="stats_item_p">4 habs</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-m2.svg" alt="" />
-                      <p class="stats_item_p">140m2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="embla__slide listing_card">
-                <img class="listing_card_img" src="./img/house-13.webp" alt="House 1" />
-                <button class="like_button">
-                  <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <div class="card_data">
-                  <div class="card_info">
-                    <p class="card_type">Departamento en venta</p>
-                    <p class="card_price">USD 240.000</p>
-                  </div>
-                  <div class="card_location">
-                    <p class="card_direction">Dorrego 1430</p>
-                    <p class="card_city">Rosario</p>
-                  </div>
-                  <div class="card_stats">
-                    <div class="card_stats_item">
-                      <img src="./img/icono-banios.svg" alt="" />
-                      <p class="stats_item_p">1 baño</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-planos.svg" alt="" />
-                      <p class="stats_item_p">3 habs</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-m2.svg" alt="" />
-                      <p class="stats_item_p">150m2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="embla__slide listing_card">
-                <img class="listing_card_img" src="./img/house-1.webp" alt="House 1" />
-                <button class="like_button">
-                  <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <div class="card_data">
-                  <div class="card_info">
-                    <p class="card_type">Departamento en venta</p>
-                    <p class="card_price">$160000</p>
-                  </div>
-                  <div class="card_location">
-                    <p class="card_direction">Dirección falsa 123</p>
-                    <p class="card_city">Rosario</p>
-                  </div>
-                  <div class="card_stats">
-                    <div class="card_stats_item">
-                      <img src="./img/icono-banios.svg" alt="" />
-                      <p class="stats_item_p">1 baño</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-planos.svg" alt="" />
-                      <p class="stats_item_p">2 habs</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-m2.svg" alt="" />
-                      <p class="stats_item_p">250m2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="embla__slide listing_card">
-                <img class="listing_card_img" src="./img/house-1.webp" alt="House 1" />
-                <button class="like_button">
-                  <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <div class="card_data">
-                  <div class="card_info">
-                    <p class="card_type">Departamento en venta</p>
-                    <p class="card_price">$160000</p>
-                  </div>
-                  <div class="card_location">
-                    <p class="card_direction">Dirección falsa 123</p>
-                    <p class="card_city">Rosario</p>
-                  </div>
-                  <div class="card_stats">
-                    <div class="card_stats_item">
-                      <img src="./img/icono-banios.svg" alt="" />
-                      <p class="stats_item_p">1 baño</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-planos.svg" alt="" />
-                      <p class="stats_item_p">2 habs</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-m2.svg" alt="" />
-                      <p class="stats_item_p">250m2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="embla__slide listing_card">
-                <img class="listing_card_img" src="./img/house-1.webp" alt="House 1" />
-                <button class="like_button">
-                  <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <div class="card_data">
-                  <div class="card_info">
-                    <p class="card_type">Departamento en venta</p>
-                    <p class="card_price">$160000</p>
-                  </div>
-                  <div class="card_location">
-                    <p class="card_direction">Dirección falsa 123</p>
-                    <p class="card_city">Rosario</p>
-                  </div>
-                  <div class="card_stats">
-                    <div class="card_stats_item">
-                      <img src="./img/icono-banios.svg" alt="" />
-                      <p class="stats_item_p">1 baño</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-planos.svg" alt="" />
-                      <p class="stats_item_p">2 habs</p>
-                    </div>
-                    <div class="card_stats_item">
-                      <img src="./img/icono-m2.svg" alt="" />
-                      <p class="stats_item_p">250m2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="embla__next carousel_button">
-            <img width="15" src="./img/arrow-right.svg" alt="Arrow right" />
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- Divider -->
-    <section>
-      <div class="imgContDivider">
-        <div class="container dividerText">
-          <h3 class="headDivider">Listá tu propiedad!</h3>
-          <p class="paragraphDivider">
-            ¡Haz que tu propiedad brille en el mercado inmobiliario! Al
-            publicar y listar tu propiedad con nosotros, tendrás acceso a una
-            amplia audiencia de potenciales compradores y arrendatarios.
-            Aprovecha nuestra experiencia y herramientas para destacar tu
-            propiedad y obtener la mejor oferta. ¡Contáctanos hoy mismo para
-            comenzar y maximizar tus oportunidades!
-          </p>
-          <div class="buttonDivider">
-            <button class="button">Listar</button>
-          </div>
-        </div>
-        <div class="shadow"></div>
-      </div>
-    </section>
-    <!-- Stats -->
-    <section>
-      <div class="container">
-        <div class="info">
-          <div class="statsLeft">
-            <div class="textStats">
-              <h1 class="h1Stats">¿Porqué elegirnos?</h1>
-              <p>
-                Por nuestra sólida experiencia en el rubro inmobiliario, donde
-                hemos ayudado a cientos de clientes a encontrar su hogar ideal
-                o a vender sus propiedades al mejor valor. Nuestro equipo de
-                profesionales combina un profundo conocimiento del mercado con
-                un enfoque personalizado, asegurando que cada operación sea
-                segura, eficiente y exitosa.
-              </p>
-            </div>
-            <div class="frames">
-              <div class="frameGold frame">
-                <p class="frame_number">35k</p>
-                <p class="textFrames">Propiedades vendidas</p>
-              </div>
-              <div class="frameBlack frame">
-                <p class="frame_number">30k</p>
-                <p class="textFrames">Clientes felices</p>
-              </div>
-              <div class="frameBlack frame">
-                <p class="frame_number">15</p>
-                <p class="textFrames">Años de experiencia</p>
-              </div>
-              <div class="frameBlack frame">
-                <p class="frame_number">1M</p>
-                <p class="textFrames">Visitas a la página</p>
-              </div>
-            </div>
-          </div>
-          <div class="statsRight">
-            <div class="mapStats">
-              <img class="mapArg" src="./img/mapa-argentina.webp" alt="ArgMap" width="239px" height="503px" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Contacto -->
-    <section>
-      <div class="container contenedor-formulario">
-        <div class="contenedor">
-          <section>
-            <h3 class="subtitulo-contacto">No dudes en consultar</h3>
-            <p class="parrafo">
-              Ofrecemos atención personalizada para ayudarte a encontrar la
-              propiedad ideal. Si tienes alguna pregunta o necesitas
-              asistencia mientras completas este formulario, no dudes en
-              contactarnos. Nuestro equipo está aquí para ayudarte en cada
-              paso del proceso.
-            </p>
-            <h5 class="h5">Seguinos</h5>
-            <div class="redes">
-              <a href="">
-                <img src="./img/ig-icon-gold.svg" alt="" />
-              </a>
-              <a href="">
-                <img src="./img/X-icon-gold.svg" alt="" />
-              </a>
-            </div>
-          </section>
-        </div>
-        <div class="form-container">
-          <h4 class="subtitulo-formulario">Formulario de contacto</h4>
-          <p class="descripcion-formulario">Completá el formulario con tus datos.</p>
-          <form id="formulario-contacto" class="formulario" novalidate>
-            <label for="nombre">Nombre</label>
-            <input class="input" type="text" id="nombre" maxlength="30" placeholder="Nombre" />
-            <div class="form-error" id="nombre-error"></div>
-            <label for="email">Email</label>
-            <input class="input" type="email" id="email" placeholder="Email" />
-            <div class="form-error" id="email-error"></div>
-            <label for="mensaje">Mensaje</label>
-            <textarea class="input" name="mensaje" id="mensaje" rows="10" cols="40" maxlength="300"
-              placeholder="Escribe su mensaje"></textarea>
-            <div class="form-error" id="mensaje-error"></div>
-            <div class="form-enviado" id="form-enviado"></div>
-            <button class="button button_form" id="boton-form" type="submit">Enviar</button>
+        <div class="Form_Buscar_Hero">
+          <form>
+            <input
+              class="input"
+              type="text"
+              placeholder="Ingresá ubicación/barrio/localidad"
+            />
+            <button class="button button_hero">Buscar</button>
           </form>
         </div>
       </div>
-    </section>
-  </main>
-  <footer>
-    <div class="container footer_container">
-      <div class="footer_logo">
-        <img class="footer_logo_img" src="./img/logo.webp" alt="Logo" />
-        <p class="footer_logo_title">Real state</p>
+    </div>
+  </section>
+  <!-- Carousel -->
+  <section>
+    <div class="container">
+      <h1 class="carousel_title">Propiedades destacadas</h1>
+      <div class="embla">
+        <button class="embla__prev carousel_button">
+          <img src="./img/arrow-left.svg" alt="Arrow left" />
+        </button>
+        <div class="embla__viewport">
+          <div class="embla__container">
+            <div class="embla__slide listing_card">
+              <img
+                class="listing_card_img"
+                src="./img/house-14.webp"
+                alt="House 1"
+              />
+              <button class="like_button">
+                <svg
+                  class="like_button_hearth"
+                  width="17"
+                  height="15"
+                  viewBox="0 0 17 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="card_data">
+                <div class="card_info">
+                  <p class="card_type">Casa en venta</p>
+                  <p class="card_price">USD 465.000</p>
+                </div>
+                <div class="card_location">
+                  <p class="card_direction">Riccheri 1030</p>
+                  <p class="card_city">Funes</p>
+                </div>
+                <div class="card_stats">
+                  <div class="card_stats_item">
+                    <img src="./img/icono-banios.svg" alt="" />
+                    <p class="stats_item_p">2 baño</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-planos.svg" alt="" />
+                    <p class="stats_item_p">6 habs</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-m2.svg" alt="" />
+                    <p class="stats_item_p">230m2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="embla__slide listing_card">
+              <img
+                class="listing_card_img"
+                src="./img/house-12.webp"
+                alt="House 1"
+              />
+              <button class="like_button">
+                <svg
+                  class="like_button_hearth"
+                  width="17"
+                  height="15"
+                  viewBox="0 0 17 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="card_data">
+                <div class="card_info">
+                  <p class="card_type">Departamento en alquiler</p>
+                  <p class="card_price">$ 350.000</p>
+                </div>
+                <div class="card_location">
+                  <p class="card_direction">Boulevard Oroño 1450</p>
+                  <p class="card_city">Rosario</p>
+                </div>
+                <div class="card_stats">
+                  <div class="card_stats_item">
+                    <img src="./img/icono-banios.svg" alt="" />
+                    <p class="stats_item_p">1 baño</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-planos.svg" alt="" />
+                    <p class="stats_item_p">4 habs</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-m2.svg" alt="" />
+                    <p class="stats_item_p">140m2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="embla__slide listing_card">
+              <img
+                class="listing_card_img"
+                src="./img/house-13.webp"
+                alt="House 1"
+              />
+              <button class="like_button">
+                <svg
+                  class="like_button_hearth"
+                  width="17"
+                  height="15"
+                  viewBox="0 0 17 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="card_data">
+                <div class="card_info">
+                  <p class="card_type">Departamento en venta</p>
+                  <p class="card_price">USD 240.000</p>
+                </div>
+                <div class="card_location">
+                  <p class="card_direction">Dorrego 1430</p>
+                  <p class="card_city">Rosario</p>
+                </div>
+                <div class="card_stats">
+                  <div class="card_stats_item">
+                    <img src="./img/icono-banios.svg" alt="" />
+                    <p class="stats_item_p">1 baño</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-planos.svg" alt="" />
+                    <p class="stats_item_p">3 habs</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-m2.svg" alt="" />
+                    <p class="stats_item_p">150m2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="embla__slide listing_card">
+              <img
+                class="listing_card_img"
+                src="./img/house-1.webp"
+                alt="House 1"
+              />
+              <button class="like_button">
+                <svg
+                  class="like_button_hearth"
+                  width="17"
+                  height="15"
+                  viewBox="0 0 17 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="card_data">
+                <div class="card_info">
+                  <p class="card_type">Departamento en venta</p>
+                  <p class="card_price">$160000</p>
+                </div>
+                <div class="card_location">
+                  <p class="card_direction">Dirección falsa 123</p>
+                  <p class="card_city">Rosario</p>
+                </div>
+                <div class="card_stats">
+                  <div class="card_stats_item">
+                    <img src="./img/icono-banios.svg" alt="" />
+                    <p class="stats_item_p">1 baño</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-planos.svg" alt="" />
+                    <p class="stats_item_p">2 habs</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-m2.svg" alt="" />
+                    <p class="stats_item_p">250m2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="embla__slide listing_card">
+              <img
+                class="listing_card_img"
+                src="./img/house-1.webp"
+                alt="House 1"
+              />
+              <button class="like_button">
+                <svg
+                  class="like_button_hearth"
+                  width="17"
+                  height="15"
+                  viewBox="0 0 17 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="card_data">
+                <div class="card_info">
+                  <p class="card_type">Departamento en venta</p>
+                  <p class="card_price">$160000</p>
+                </div>
+                <div class="card_location">
+                  <p class="card_direction">Dirección falsa 123</p>
+                  <p class="card_city">Rosario</p>
+                </div>
+                <div class="card_stats">
+                  <div class="card_stats_item">
+                    <img src="./img/icono-banios.svg" alt="" />
+                    <p class="stats_item_p">1 baño</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-planos.svg" alt="" />
+                    <p class="stats_item_p">2 habs</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-m2.svg" alt="" />
+                    <p class="stats_item_p">250m2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="embla__slide listing_card">
+              <img
+                class="listing_card_img"
+                src="./img/house-1.webp"
+                alt="House 1"
+              />
+              <button class="like_button">
+                <svg
+                  class="like_button_hearth"
+                  width="17"
+                  height="15"
+                  viewBox="0 0 17 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="card_data">
+                <div class="card_info">
+                  <p class="card_type">Departamento en venta</p>
+                  <p class="card_price">$160000</p>
+                </div>
+                <div class="card_location">
+                  <p class="card_direction">Dirección falsa 123</p>
+                  <p class="card_city">Rosario</p>
+                </div>
+                <div class="card_stats">
+                  <div class="card_stats_item">
+                    <img src="./img/icono-banios.svg" alt="" />
+                    <p class="stats_item_p">1 baño</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-planos.svg" alt="" />
+                    <p class="stats_item_p">2 habs</p>
+                  </div>
+                  <div class="card_stats_item">
+                    <img src="./img/icono-m2.svg" alt="" />
+                    <p class="stats_item_p">250m2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="embla__next carousel_button">
+          <img width="15" src="./img/arrow-right.svg" alt="Arrow right" />
+        </button>
       </div>
-      <div class="footer_nav">
-        <ul class="footer_list">
-          <li class="footer_list_item">
-            <a class="footer_list_a" href="#">Home</a>
-          </li>
-          <li class="footer_list_item">
-            <a class="footer_list_a" href="#">Vender</a>
-          </li>
-          <li class="footer_list_item">
-            <a class="footer_list_a" href="#">Comprar</a>
-          </li>
-        </ul>
+    </div>
+  </section>
+  <!-- Divider -->
+  <section>
+    <div class="imgContDivider">
+      <div class="container dividerText">
+        <h3 class="headDivider">Listá tu propiedad!</h3>
+        <p class="paragraphDivider">
+          ¡Haz que tu propiedad brille en el mercado inmobiliario! Al publicar y
+          listar tu propiedad con nosotros, tendrás acceso a una amplia
+          audiencia de potenciales compradores y arrendatarios. Aprovecha
+          nuestra experiencia y herramientas para destacar tu propiedad y
+          obtener la mejor oferta. ¡Contáctanos hoy mismo para comenzar y
+          maximizar tus oportunidades!
+        </p>
+        <div class="buttonDivider">
+          <button class="button">Listar</button>
+        </div>
       </div>
-      <div class="separator"></div>
-      <div class="footer_copy">
-        <p>© Copyright 2024. Todos los derechos reservados</p>
-        <div class="footer_socials">
-          <a class="socials_a" href="#">
-            <img class="socials_img" src="./img/ig-icon-black.svg" alt="" />
-          </a>
-          <a class="socials_a" href="#">
-            <img class="socials_img" src="./img/x-icon-black.svg" alt="" />
-          </a>
+      <div class="shadow"></div>
+    </div>
+  </section>
+  <!-- Stats -->
+  <section>
+    <div class="container">
+      <div class="info">
+        <div class="statsLeft">
+          <div class="textStats">
+            <h1 class="h1Stats">¿Porqué elegirnos?</h1>
+            <p>
+              Por nuestra sólida experiencia en el rubro inmobiliario, donde
+              hemos ayudado a cientos de clientes a encontrar su hogar ideal o a
+              vender sus propiedades al mejor valor. Nuestro equipo de
+              profesionales combina un profundo conocimiento del mercado con un
+              enfoque personalizado, asegurando que cada operación sea segura,
+              eficiente y exitosa.
+            </p>
+          </div>
+          <div class="frames">
+            <div class="frameGold frame">
+              <p class="frame_number">35k</p>
+              <p class="textFrames">Propiedades vendidas</p>
+            </div>
+            <div class="frameBlack frame">
+              <p class="frame_number">30k</p>
+              <p class="textFrames">Clientes felices</p>
+            </div>
+            <div class="frameBlack frame">
+              <p class="frame_number">15</p>
+              <p class="textFrames">Años de experiencia</p>
+            </div>
+            <div class="frameBlack frame">
+              <p class="frame_number">1M</p>
+              <p class="textFrames">Visitas a la página</p>
+            </div>
+          </div>
+        </div>
+        <div class="statsRight">
+          <div class="mapStats">
+            <img
+              class="mapArg"
+              src="./img/mapa-argentina.webp"
+              alt="ArgMap"
+              width="239px"
+              height="503px"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </footer>
-  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-  <script type="text/javascript">
-    const rootNode = document.querySelector(".embla");
-    const viewportNode = rootNode.querySelector(".embla__viewport");
-    // Grab button nodes
-    const prevButtonNode = rootNode.querySelector(".embla__prev");
-    const nextButtonNode = rootNode.querySelector(".embla__next");
-    const embla = EmblaCarousel(viewportNode);
-    prevButtonNode.addEventListener("click", embla.scrollPrev, false);
-    nextButtonNode.addEventListener("click", embla.scrollNext, false);
-  </script>
-  <script src="./scripts/validar-contacto.js"></script>
-</body>
-
-</html>
+  </section>
+  <!-- Contacto -->
+  <section>
+    <div class="container contenedor-formulario">
+      <div class="contenedor">
+        <section>
+          <h3 class="subtitulo-contacto">No dudes en consultar</h3>
+          <p class="parrafo">
+            Ofrecemos atención personalizada para ayudarte a encontrar la
+            propiedad ideal. Si tienes alguna pregunta o necesitas asistencia
+            mientras completas este formulario, no dudes en contactarnos.
+            Nuestro equipo está aquí para ayudarte en cada paso del proceso.
+          </p>
+          <h5 class="h5">Seguinos</h5>
+          <div class="redes">
+            <a href="">
+              <img src="./img/ig-icon-gold.svg" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/X-icon-gold.svg" alt="" />
+            </a>
+          </div>
+        </section>
+      </div>
+      <div class="form-container">
+        <h4 class="subtitulo-formulario">Formulario de contacto</h4>
+        <p class="descripcion-formulario">
+          Completá el formulario con tus datos.
+        </p>
+        <form id="formulario-contacto" class="formulario" novalidate>
+          <label for="nombre">Nombre</label>
+          <input
+            class="input"
+            type="text"
+            id="nombre"
+            maxlength="30"
+            placeholder="Nombre"
+          />
+          <div class="form-error" id="nombre-error"></div>
+          <label for="email">Email</label>
+          <input class="input" type="email" id="email" placeholder="Email" />
+          <div class="form-error" id="email-error"></div>
+          <label for="mensaje">Mensaje</label>
+          <textarea
+            class="input"
+            name="mensaje"
+            id="mensaje"
+            rows="10"
+            cols="40"
+            maxlength="300"
+            placeholder="Escribe su mensaje"
+          ></textarea>
+          <div class="form-error" id="mensaje-error"></div>
+          <div class="form-enviado" id="form-enviado"></div>
+          <button class="button button_form" id="boton-form" type="submit">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+<script type="text/javascript">
+  const rootNode = document.querySelector(".embla");
+  const viewportNode = rootNode.querySelector(".embla__viewport");
+  // Grab button nodes
+  const prevButtonNode = rootNode.querySelector(".embla__prev");
+  const nextButtonNode = rootNode.querySelector(".embla__next");
+  const embla = EmblaCarousel(viewportNode);
+  prevButtonNode.addEventListener("click", embla.scrollPrev, false);
+  nextButtonNode.addEventListener("click", embla.scrollNext, false);
+</script>
+<script src="./scripts/validar-contacto.js"></script>
+{% endblock %}
