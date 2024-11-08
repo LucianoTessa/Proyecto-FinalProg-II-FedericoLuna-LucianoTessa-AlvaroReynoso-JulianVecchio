@@ -3,12 +3,13 @@
 <main class="container main-publicar">
   <h1>Publicar mi propiedad</h1>
   <hr />
-  <form class="formulario" action="#" method="post" target="_blank">
+  <form class="formulario" action="{{ url_for('publicar') }}" method="POST">
     <div class="contenedor-formu">
       <div>
         <label for="titulo">Titulo</label><br />
         <input
           class="input"
+          name="titulo"
           type="text"
           id="titulo"
           placeholder="Casa comoda con jardin"
@@ -19,6 +20,7 @@
         <label for="precio">Precio</label><br />
         <input
           class="input"
+          name="precio"
           type="text"
           id="precio"
           placeholder="200000"
@@ -26,8 +28,8 @@
         <small>En caso de alquiler.Escriba el monto del mes</small><br />
       </div>
       <div>
-        <label for="propiedad">Tipo de propiedad</label><br />
-        <select name="propiedad" id="propiedad" required>
+        <label for="tipo">Tipo de propiedad</label><br />
+        <select name="tipo" id="tipo" required>
           <option value="otros" disabled selected>Seleccionar el tipo</option>
           <option value="casa">Casa</option>
           <option value="departamento">Departamento</option></select
@@ -36,7 +38,7 @@
       </div>
       <div>
         <label for="venta">Venta/Alquiler</label><br />
-        <select name="venta" id="venta" required>
+        <select name="modalidad" id="venta" required>
           <option value="otros" disabled selected>Seleccionar el tipo</option>
           <option value="venta">Venta</option>
           <option value="alquiler">Alquiler</option></select
@@ -44,27 +46,41 @@
         <small>Que desea hacer con su propiedad</small><br />
       </div>
       <div>
-        <label for="baños">Baños</label><br />
-        <input class="input" type="text" id="baños" placeholder="1" /><br />
+        <label for="banios">Baños</label><br />
+        <input
+          class="input"
+          name="banios"
+          type="text"
+          id="banios"
+          placeholder="1"
+        /><br />
       </div>
       <div>
         <label for="habitaciones">Habitaciones</label><br />
         <input
           class="input"
+          name="habitaciones"
           type="text"
           id="habitaciones"
           placeholder="1"
         /><br />
       </div>
       <div>
-        <label for="metros">Metros cuadrados</label><br />
-        <input class="input" type="text" id="metros" placeholder="120" /><br />
+        <label for="metros_cuadrados">Metros cuadrados</label><br />
+        <input
+          class="input"
+          name="metros_cuadrados"
+          type="text"
+          id="metros"
+          placeholder="120"
+        /><br />
         <small>Tamaño en metros cuadrados de su propiedad</small><br />
       </div>
       <div>
         <label for="ciudad">Ciudad</label><br />
         <input
           class="input"
+          name="ciudad"
           type="text"
           id="ciudad"
           placeholder="Rosario"
@@ -75,27 +91,28 @@
         <label for="direccion">Dirección</label><br />
         <input
           class="input"
+          name="direccion"
           type="text"
           id="direccion"
           placeholder="San Martin 123"
         /><br />
         <small>Dirección de donde está su propiedad</small><br />
       </div>
-      <div class="mensaje">
-        <label for="mensaje">Descripción</label><br />
+      <div class="descripcion">
+        <label for="descripcion">Descripción</label><br />
         <textarea
           class="input"
-          name="mensaje"
+          name="descripcion"
           rows="10"
           cols="40"
-          placeholder="Escriba su mensaje..."
+          placeholder="Escriba su descripción..."
         >
         </textarea
         ><br />
         <small>Describa su propiedad lo mas detalladamete posible</small><br />
-        <label class="label-img" for="imagenes">Imagenes</label><br />
-        <button class="boton-subir" type="submit">Subir archivo</button><br />
-        <small>Imágenes de su propiedad</small><br />
+        <!-- <label class="label-img" for="imagenes">Imagenes</label><br /> -->
+        <!-- <button class="boton-subir" type="submit">Subir archivo</button><br /> -->
+        <!-- <small>Imágenes de su propiedad</small><br /> -->
         <button class="button-publi button" type="submit">Publicar</button>
       </div>
     </div>
