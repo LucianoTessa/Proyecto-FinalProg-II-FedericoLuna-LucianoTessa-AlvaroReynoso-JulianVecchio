@@ -6,6 +6,12 @@ Trabajo final de programación.
 
 Se trata de una pagina web donde las personas van a poder alquilar / vender sus propiedades.
 
+## Instalacion
+
+```
+    pip install -r requirements.txt
+```
+
 ## Autores
 
 - [Federico Luna](https://github.com/FedericoLuna01)
