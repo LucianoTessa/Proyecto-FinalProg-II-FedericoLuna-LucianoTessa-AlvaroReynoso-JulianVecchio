@@ -1,5 +1,6 @@
-{% extends 'layout.html' %} {% block titulo %}Real state - Publicar{% endblock
-%} {% block content %}
+{% extends 'layout.html' %}
+{% block titulo %}Real state - Publicar{% endblock %}
+{% block content %}
 <main class="container main-publicar">
   <h1>Publicar mi propiedad</h1>
   <hr />
@@ -7,33 +8,21 @@
     <div class="contenedor-formu">
       <div>
         <label for="titulo">Titulo</label><br />
-        <input
-          class="input"
-          name="titulo"
-          type="text"
-          id="titulo"
-          placeholder="Casa comoda con jardin"
-        /><br />
+        <input class="input" name="titulo" type="text" id="titulo" placeholder="Casa comoda con jardin" /><br />
         <small>Escribe una breve descripción de su propiedad</small><br />
       </div>
       <div>
         <label for="precio">Precio</label><br />
-        <input
-          class="input"
-          name="precio"
-          type="text"
-          id="precio"
-          placeholder="200000"
-        /><br />
-        <small>En caso de alquiler.Escriba el monto del mes</small><br />
+        <input class="input" name="precio" type="text" id="precio" placeholder="200000" /><br />
+        <small>En caso de alquiler. Escriba el monto del mes</small><br />
       </div>
       <div>
         <label for="tipo">Tipo de propiedad</label><br />
         <select name="tipo" id="tipo" required>
           <option value="otros" disabled selected>Seleccionar el tipo</option>
           <option value="casa">Casa</option>
-          <option value="departamento">Departamento</option></select
-        ><br />
+          <option value="departamento">Departamento</option>
+        </select><br />
         <small>Tipo de propiedad</small><br />
       </div>
       <div>
@@ -41,81 +30,63 @@
         <select name="modalidad" id="venta" required>
           <option value="otros" disabled selected>Seleccionar el tipo</option>
           <option value="venta">Venta</option>
-          <option value="alquiler">Alquiler</option></select
-        ><br />
-        <small>Que desea hacer con su propiedad</small><br />
+          <option value="alquiler">Alquiler</option>
+        </select><br />
+        <small>Qué desea hacer con su propiedad</small><br />
       </div>
       <div>
         <label for="banios">Baños</label><br />
-        <input
-          class="input"
-          name="banios"
-          type="text"
-          id="banios"
-          placeholder="1"
-        /><br />
+        <input class="input" name="banios" type="text" id="banios" placeholder="1" /><br />
       </div>
       <div>
         <label for="habitaciones">Habitaciones</label><br />
-        <input
-          class="input"
-          name="habitaciones"
-          type="text"
-          id="habitaciones"
-          placeholder="1"
-        /><br />
+        <input class="input" name="habitaciones" type="text" id="habitaciones" placeholder="1" /><br />
       </div>
       <div>
         <label for="metros_cuadrados">Metros cuadrados</label><br />
-        <input
-          class="input"
-          name="metros_cuadrados"
-          type="text"
-          id="metros"
-          placeholder="120"
-        /><br />
+        <input class="input" name="metros_cuadrados" type="text" id="metros" placeholder="120" /><br />
         <small>Tamaño en metros cuadrados de su propiedad</small><br />
       </div>
       <div>
         <label for="ciudad">Ciudad</label><br />
-        <input
-          class="input"
-          name="ciudad"
-          type="text"
-          id="ciudad"
-          placeholder="Rosario"
-        /><br />
-        <small>Ciudad en donde esta su propiedad</small><br />
+        <input class="input" name="ciudad" type="text" id="ciudad" placeholder="Rosario" /><br />
+        <small>Ciudad donde está su propiedad</small><br />
       </div>
       <div>
         <label for="direccion">Dirección</label><br />
-        <input
-          class="input"
-          name="direccion"
-          type="text"
-          id="direccion"
-          placeholder="San Martin 123"
-        /><br />
+        <input class="input" name="direccion" type="text" id="direccion" placeholder="San Martin 123" /><br />
         <small>Dirección de donde está su propiedad</small><br />
       </div>
       <div class="descripcion">
         <label for="descripcion">Descripción</label><br />
-        <textarea
-          class="input"
-          name="descripcion"
-          rows="10"
-          cols="40"
-          placeholder="Escriba su descripción..."
-        >
-        </textarea
-        ><br />
-        <small>Describa su propiedad lo mas detalladamete posible</small><br />
-        <!-- <label class="label-img" for="imagenes">Imagenes</label><br /> -->
-        <!-- <button class="boton-subir" type="submit">Subir archivo</button><br /> -->
-        <!-- <small>Imágenes de su propiedad</small><br /> -->
-        <button class="button-publi button" type="submit">Publicar</button>
+        <textarea class="input" name="descripcion" rows="10" cols="40"
+          placeholder="Escriba su descripción..."></textarea><br />
+        <small>Describa su propiedad lo más detalladamente posible</small><br />
+        <button class="button-publi button" type="submit" id="submit-button">Publicar</button>
       </div>
     </div>
   </form>
+
+  <!-- Verifica si hay mensajes flash -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <!-- Mostrar el mensaje flash -->
+  <div class="alert alert-{{ category }}">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+
+  {% endif %}
+  {% endwith %}
+
+  {% if delay %}
+  <script type="text/javascript">
+    setTimeout(function () {
+      window.location.href = "{{ url_for('index') }}";
+    }, 3000);  // 3000 milisegundos = 3 segundos
+  </script>
+  {% endif %}
 </main>
 {% endblock %}

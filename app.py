@@ -1,10 +1,10 @@
 import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:123@localhost/real-state"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:lomas0099@localhost/realstate"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
@@ -52,6 +52,7 @@ class Post(db.Model):
         self.fecha_publicacion = fecha_publicacion
 
 
+
 @app.route("/publicar", methods=["GET", "POST"])
 def publicar():
     if request.method == "POST":
@@ -69,23 +70,27 @@ def publicar():
         nuevoPost = Post(
             titulo=titulo,
             descripcion=descripcion,
-            precio=precio,
+            precio=float(precio),
             tipo=tipo,
             modalidad=modalidad,
-            banios=banios,
-            habitaciones=habitaciones,
-            metros_cuadrados=metros_cuadrados,
+            banios=int(banios),
+            habitaciones=int(habitaciones),
+            metros_cuadrados=int(metros_cuadrados),
             ciudad=ciudad,
             direccion=direccion,
             fecha_publicacion=datetime.datetime.now(),
         )
         db.session.add(nuevoPost)
         db.session.commit()
-        # TODO: Redireccionar a la página de inicio
-        return "Publicación exitosa"
-    elif request.method == "GET":
-        return render_template("publicar.html")
 
+    #HECHO EL MENSAJE DE EXITO Y REDIRECCIONAMIENTO EN 3 SEG A PAGINA PRINCIPAL
+        flash("Publicación exitosa", "success")
+        return render_template("publicar.html", delay=True)  # Enviar un indicador para hacer la espera
+
+    return render_template("publicar.html")
+
+
+app.secret_key = "tu_clave_secreta"
 
 @app.route("/favoritos")
 def favoritos():
