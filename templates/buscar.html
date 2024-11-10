@@ -26,14 +26,18 @@
         <button type="submit" class="button">Buscar</button>
       </form>
     </div>
-    <!-- TODO: Traer los post -->
     <div class="card_container">
-      <a class="card_link" href="#">
+      {% for post in posts %}
+      <a class="card_link" href="/post/{{ post.id }}">
         <div class="card">
-          <img src="../img/house-1.webp" class="card_img" alt="Casa 1" />
+          <img
+            src="{{ url_for('static', filename='posts/' ~ post.imagen) }}"
+            class="card_img"
+            alt="{{ post.titulo }}"
+          />
           <div class="card_data">
             <div class="card_header">
-              <p class="card_title">Casa campestre</p>
+              <p class="card_title">{{ post.titulo }}</p>
               <button class="card_like_button">
                 <svg
                   class="like_button_hearth"
@@ -54,244 +58,42 @@
               </button>
             </div>
             <div class="data_ubicacion">
-              <p class="data_ciudad">San Luis</p>
-              <p class="data_direccion">San martin 1731</p>
+              <p class="data_ciudad">{{ post.ciudad }}</p>
+              <p class="data_direccion">{{ post.direccion }}</p>
             </div>
             <div class="card_stats">
               <div class="card_stats_item">
-                <img src="../img/icono-banios.svg" alt="" />
-                <p class="stats_item_p">1 baño</p>
+                <img
+                  src="{{ url_for('static', filename='images/icono-banios.svg') }}"
+                  alt="Icono baños"
+                />
+                <p class="stats_item_p">
+                  {{ post.banios }} {{ 'baño' if post.banios == 1 else 'baños'
+                  }}
+                </p>
               </div>
               <div class="card_stats_item">
-                <img src="../img/icono-planos.svg" alt="" />
-                <p class="stats_item_p">3 habs</p>
+                <img
+                  src="{{ url_for('static', filename='images/icono-planos.svg') }}"
+                  alt="Icono planos"
+                />
+                <p class="stats_item_p">{{ post.habitaciones }} habs</p>
               </div>
               <div class="card_stats_item">
-                <img src="../img/icono-m2.svg" alt="" />
-                <p class="stats_item_p">250m2</p>
+                <img
+                  src="{{ url_for('static', filename='images/icono-m2.svg') }}"
+                  alt="Icono m2"
+                />
+
+                <p class="stats_item_p">{{ post.metros_cuadrados }}m2</p>
               </div>
             </div>
-            <p class="data_descripcion">
-              Rodeada de viñedos y montañas, combina arquitectura rústica con
-              comodidades modernas. Ofrece amplios espacios interiores con
-              decoración en madera, grandes ventanales que permiten vistas
-              panorámicas y un jardín extenso con vegetación autóctona.
-            </p>
-            <p class="data_precio">$ 600.000</p>
+            <p class="data_descripcion">{{ post.descripcion }}</p>
+            <p class="data_precio">$ {{ post.precio }}</p>
           </div>
         </div>
       </a>
-      <a class="card_link" href="#">
-        <div class="card">
-          <img src="../img/house-2.webp" class="card_img" alt="Casa 1" />
-          <div class="card_data">
-            <div class="card_header">
-              <p class="card_title">Departamento</p>
-              <button class="card_like_button">
-                <svg
-                  class="like_button_hearth"
-                  width="17"
-                  height="15"
-                  viewBox="0 0 17 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="data_ubicacion">
-              <p class="data_ciudad">Rosario</p>
-              <p class="data_direccion">Corrientes 1100</p>
-            </div>
-            <div class="card_stats">
-              <div class="card_stats_item">
-                <img src="../img/icono-banios.svg" alt="" />
-                <p class="stats_item_p">1 baño</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-planos.svg" alt="" />
-                <p class="stats_item_p">2 habs</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-m2.svg" alt="" />
-                <p class="stats_item_p">76m2</p>
-              </div>
-            </div>
-            <p class="data_descripcion">
-              Moderno y luminoso, cuenta con un diseño eficiente que incluye una
-              cocina integrada al living-comedor, dos dormitorios cómodos, y un
-              balcón con vista a la ciudad. Ideal para una vida urbana práctica
-              y confortable.
-            </p>
-            <p class="data_precio">$ 165.000</p>
-          </div>
-        </div>
-      </a>
-      <a class="card_link" href="#">
-        <div class="card">
-          <img src="../img/house-3.webp" class="card_img" alt="Casa 1" />
-          <div class="card_data">
-            <div class="card_header">
-              <p class="card_title">Casa</p>
-              <button class="card_like_button">
-                <svg
-                  class="like_button_hearth"
-                  width="17"
-                  height="15"
-                  viewBox="0 0 17 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="data_ubicacion">
-              <p class="data_ciudad">Zavalla</p>
-              <p class="data_direccion">Alsina 950</p>
-            </div>
-            <div class="card_stats">
-              <div class="card_stats_item">
-                <img src="../img/icono-banios.svg" alt="" />
-                <p class="stats_item_p">2 baños</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-planos.svg" alt="" />
-                <p class="stats_item_p">5 habs</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-m2.svg" alt="" />
-                <p class="stats_item_p">210m2</p>
-              </div>
-            </div>
-            <p class="data_descripcion">
-              Tranquila y acogedora, ofrece un entorno familiar con un jardín
-              delantero, espacios amplios y bien iluminados, y una sala de estar
-              conectada a una cocina abierta. Perfecta para disfrutar de la vida
-              en comunidad con un toque de serenidad rural.
-            </p>
-            <p class="data_precio">$ 176.000</p>
-          </div>
-        </div>
-      </a>
-      <a class="card_link" href="#">
-        <div class="card">
-          <img src="../img/house-4.webp" class="card_img" alt="Casa 1" />
-          <div class="card_data">
-            <div class="card_header">
-              <p class="card_title">Casa</p>
-              <button class="card_like_button">
-                <svg
-                  class="like_button_hearth"
-                  width="17"
-                  height="15"
-                  viewBox="0 0 17 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="data_ubicacion">
-              <p class="data_ciudad">El Trébol</p>
-              <p class="data_direccion">Av. General San Martín 1350</p>
-            </div>
-            <div class="card_stats">
-              <div class="card_stats_item">
-                <img src="../img/icono-banios.svg" alt="" />
-                <p class="stats_item_p">1 baño</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-planos.svg" alt="" />
-                <p class="stats_item_p">3 habs</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-m2.svg" alt="" />
-                <p class="stats_item_p">140m2</p>
-              </div>
-            </div>
-            <p class="data_descripcion">
-              Ofrece un ambiente cálido y familiar, con un amplio patio trasero,
-              ambientes luminosos y bien distribuidos, y detalles de
-              construcción tradicional. Es un hogar ideal para quienes buscan
-              tranquilidad en un entorno de pueblo.
-            </p>
-            <p class="data_precio">$ 125.000</p>
-          </div>
-        </div>
-      </a>
-      <a class="card_link" href="#">
-        <div class="card">
-          <img src="../img/house-5.webp" class="card_img" alt="Casa 1" />
-          <div class="card_data">
-            <div class="card_header">
-              <p class="card_title">Casa</p>
-              <button class="card_like_button">
-                <svg
-                  class="like_button_hearth"
-                  width="17"
-                  height="15"
-                  viewBox="0 0 17 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="data_ubicacion">
-              <p class="data_ciudad">López</p>
-              <p class="data_direccion">Av. Santa Fe 560</p>
-            </div>
-            <div class="card_stats">
-              <div class="card_stats_item">
-                <img src="../img/icono-banios.svg" alt="" />
-                <p class="stats_item_p">1 baño</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-planos.svg" alt="" />
-                <p class="stats_item_p">3 habs</p>
-              </div>
-              <div class="card_stats_item">
-                <img src="../img/icono-m2.svg" alt="" />
-                <p class="stats_item_p">135m2</p>
-              </div>
-            </div>
-            <p class="data_descripcion">
-              Situada en un barrio sereno. Dispone de un patio generoso,
-              habitaciones amplias, y un living acogedor, ideal para quienes
-              valoran la tranquilidad y el contacto con la naturaleza.
-            </p>
-            <p class="data_precio">$ 150.000</p>
-          </div>
-        </div>
-      </a>
+      {% endfor %}
     </div>
   </div>
 </main>

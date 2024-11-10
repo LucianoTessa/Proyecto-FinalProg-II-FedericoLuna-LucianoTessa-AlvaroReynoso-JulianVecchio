@@ -4,3 +4,5 @@ flask-marshmallow
 pymysql 
 Flask
 Jinja2
+python-dotenv
+cryptography

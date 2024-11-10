@@ -29,7 +29,10 @@ endblock %} {% block content %}
       <h1 class="carousel_title">Propiedades destacadas</h1>
       <div class="embla">
         <button class="embla__prev carousel_button">
-          <img src="./img/arrow-left.svg" alt="Arrow left" />
+          <img
+            src="{{ url_for('static', filename='images/arrow-left.svg') }}"
+            alt="Arrow left"
+          />
         </button>
         <div class="embla__viewport">
           <div class="embla__container">
@@ -330,7 +333,11 @@ endblock %} {% block content %}
           </div>
         </div>
         <button class="embla__next carousel_button">
-          <img width="15" src="./img/arrow-right.svg" alt="Arrow right" />
+          <img
+            width="15"
+            src="{{ url_for('static', filename='images/arrow-right.svg') }}"
+            alt="Arrow right"
+          />
         </button>
       </div>
     </div>
@@ -394,7 +401,7 @@ endblock %} {% block content %}
           <div class="mapStats">
             <img
               class="mapArg"
-              src="./img/mapa-argentina.webp"
+              src="{{ url_for('static', filename='images/mapa-argentina.webp') }}"
               alt="ArgMap"
               width="239px"
               height="503px"
@@ -419,10 +426,16 @@ endblock %} {% block content %}
           <h5 class="h5">Seguinos</h5>
           <div class="redes">
             <a href="">
-              <img src="./img/ig-icon-gold.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='images/ig-icon-gold.svg') }}"
+                alt=""
+              />
             </a>
             <a href="">
-              <img src="./img/X-icon-gold.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='images/x-icon-gold.svg') }}"
+                alt=""
+              />
             </a>
           </div>
         </section>
@@ -476,5 +489,5 @@ endblock %} {% block content %}
   prevButtonNode.addEventListener("click", embla.scrollPrev, false);
   nextButtonNode.addEventListener("click", embla.scrollNext, false);
 </script>
-<script src="./scripts/validar-contacto.js"></script>
+<script src="../scripts/validar-contacto.js"></script>
 {% endblock %}

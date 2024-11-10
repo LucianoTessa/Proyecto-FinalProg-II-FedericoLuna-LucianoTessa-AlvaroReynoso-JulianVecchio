@@ -427,7 +427,7 @@ body {
 
 .imgContDivider {
   position: relative;
-  background-image: url("./img/stylish-scandinavian-living-room-with-design-mint-sofa-furnitures-mock-up-poster-map-plants-eleg.jpg");
+  background-image: url("../static/images/divider-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;

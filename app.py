@@ -1,11 +1,26 @@
+import os
 import datetime
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+
+load_dotenv()  # Cargar las variables de entorno desde el archivo .env
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:lomas0099@localhost/realstate"
+user = os.getenv("DATABASE_USER")
+password = os.getenv("DATABASE_PASSWORD")
+host = os.getenv("DATABASE_HOST")
+db_name = os.getenv("DATABASE_NAME")
+app.secret_key = os.getenv("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    f"mysql+pymysql://{user}:{password}@{host}/{db_name}"
+)
+app.config["UPLOAD_FOLDER"] = "static/posts"
+app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16 MB
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
@@ -21,7 +36,7 @@ class Post(db.Model):
     habitaciones = db.Column(db.Integer)
     metros_cuadrados = db.Column(db.Integer)
     ciudad = db.Column(db.String(50))
-    # TODO: Agregar campo de imagen
+    imagen = db.Column(db.String(255))
     direccion = db.Column(db.String(255))
     fecha_publicacion = db.Column(db.DateTime)
 
@@ -36,6 +51,7 @@ class Post(db.Model):
         habitaciones,
         metros_cuadrados,
         ciudad,
+        imagen,
         direccion,
         fecha_publicacion,
     ):
@@ -48,9 +64,9 @@ class Post(db.Model):
         self.habitaciones = habitaciones
         self.metros_cuadrados = metros_cuadrados
         self.ciudad = ciudad
+        self.imagen = imagen
         self.direccion = direccion
         self.fecha_publicacion = fecha_publicacion
-
 
 
 @app.route("/publicar", methods=["GET", "POST"])
@@ -62,35 +78,39 @@ def publicar():
         tipo = request.form["tipo"]
         modalidad = request.form["modalidad"]
         banios = request.form["banios"]
-        habitaciones = request.form["habitaciones"]
         metros_cuadrados = request.form["metros_cuadrados"]
-        ciudad = request.form["ciudad"]
+        habitaciones = request.form["habitaciones"]
+        imagen = request.files["imagen"]
         direccion = request.form["direccion"]
+        ciudad = request.form["ciudad"]
 
-        nuevoPost = Post(
-            titulo=titulo,
-            descripcion=descripcion,
-            precio=float(precio),
-            tipo=tipo,
-            modalidad=modalidad,
-            banios=int(banios),
-            habitaciones=int(habitaciones),
-            metros_cuadrados=int(metros_cuadrados),
-            ciudad=ciudad,
-            direccion=direccion,
-            fecha_publicacion=datetime.datetime.now(),
-        )
-        db.session.add(nuevoPost)
-        db.session.commit()
+        if imagen and imagen.filename != "":
+            filename = secure_filename(imagen.filename)
+            imagen.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
 
-    #HECHO EL MENSAJE DE EXITO Y REDIRECCIONAMIENTO EN 3 SEG A PAGINA PRINCIPAL
-        flash("Publicación exitosa", "success")
-        return render_template("publicar.html", delay=True)  # Enviar un indicador para hacer la espera
+            nuevoPost = Post(
+                titulo=titulo,
+                descripcion=descripcion,
+                precio=precio,
+                tipo=tipo,
+                modalidad=modalidad,
+                banios=banios,
+                habitaciones=habitaciones,
+                metros_cuadrados=metros_cuadrados,
+                ciudad=ciudad,
+                direccion=direccion,
+                fecha_publicacion=datetime.datetime.now(),
+                imagen=filename,
+            )
+            db.session.add(nuevoPost)
+            db.session.commit()
+            flash("Publicación exitosa", "success")
+        return render_template(
+            "publicar.html", delay=True
+        )  # Enviar un indicador para hacer la espera
 
     return render_template("publicar.html")
 
-
-app.secret_key = "tu_clave_secreta"
 
 @app.route("/favoritos")
 def favoritos():
@@ -99,9 +119,11 @@ def favoritos():
 
 @app.route("/buscar")
 def buscar():
-    # TODO: Obtener los posts de la base de datos
     postList = Post.query.all()
     return render_template("buscar.html", posts=postList)
+
+
+# TODO: Crear las rutas de detalle de cada post. Con metodo delete y get
 
 
 @app.route("/iniciar-sesion")
