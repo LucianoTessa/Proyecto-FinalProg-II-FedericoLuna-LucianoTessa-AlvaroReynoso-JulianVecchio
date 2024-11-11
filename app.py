@@ -11,7 +11,6 @@ load_dotenv()  # Cargar las variables de entorno desde el archivo .env
 
 
 app = Flask(__name__)
-# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:lomas0099@localhost/realstate" // BD BOCHA
 
 user = os.getenv("DATABASE_USER")
 password = os.getenv("DATABASE_PASSWORD")
@@ -118,8 +117,11 @@ def publicar():
 
 @app.route("/favoritos")
 def favoritos():
-    favoritosLista = Post.query.all()  # Aquí debes filtrar las publicaciones favoritas según tu lógica
-    return render_template("favoritos.html",posts=favoritosLista)
+    favoritosLista = (
+        Post.query.all()
+    )  # Aquí debes filtrar las publicaciones favoritas según tu lógica
+    return render_template("favoritos.html", posts=favoritosLista)
+
 
 @app.route("/eliminar_favorito/<int:id>", methods=["POST"])
 def eliminar_favorito(id):
@@ -137,10 +139,18 @@ def buscar():
 
 # TODO: Crear las rutas de detalle de cada post. Con metodo delete y get
 
-@app.route("/post/<int:id>")
+
+@app.route("/post/<int:id>", methods=["GET", "DELETE"])
 def post_detail(id):
-    post = Post.query.get_or_404(id)
-    return render_template("post_detail.html", post=post)
+    if request.method == "DELETE":
+        post = Post.query.get_or_404(id)
+        db.session.delete(post)
+        db.session.commit()
+        return redirect(url_for("buscar"))
+    elif request.method == "GET":
+        post = Post.query.get_or_404(id)
+        return render_template("post.html", post=post)
+
 
 @app.route("/iniciar-sesion")
 def login():

@@ -77,14 +77,16 @@
                   src="{{ url_for('static', filename='images/icono-planos.svg') }}"
                   alt="Icono planos"
                 />
-                <p class="stats_item_p">{{ post.habitaciones }} habs</p>
+                <p class="stats_item_p">
+                  {{ post.habitaciones }} {{ 'hab' if post.habitaciones == 1
+                  else 'habs' }}
+                </p>
               </div>
               <div class="card_stats_item">
                 <img
                   src="{{ url_for('static', filename='images/icono-m2.svg') }}"
                   alt="Icono m2"
                 />
-
                 <p class="stats_item_p">{{ post.metros_cuadrados }}m2</p>
               </div>
             </div>

@@ -382,7 +382,7 @@ body {
   display: flex;
   gap: 0.7em;
   flex-direction: column;
-
+  width: 100%;
 }
 
 .card_direction {
@@ -409,7 +409,8 @@ body {
 
 .card_stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1em;
   align-items: center;
 }
 

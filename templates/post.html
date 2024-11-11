@@ -1,38 +1,57 @@
-{% extends "layout.html" %} {% block titulo %} Real state - Iniciar sesión {%
+{% extends "layout.html" %} {% block titulo %} Real state - {{ post.titulo }} {%
 endblock %} {% block content %}
-<main class="main-post">
-  <!--<div class="container">-->
-  <!-- Empezar aca -->
-  <div class="property-card">
+<main class="container">
+  <div class="main-post">
     <div class="image-container">
-      <!-- Agrega la imagen del paisaje aquí -->
-      <img src="{{ url_for('static', filename='images/arrow-left.svg') }}"
-      alt="Arrow left"/>
+      <img
+        src="{{ url_for('static', filename='posts/' ~ post.imagen) }}"
+        class="property-image"
+        alt="{{ post.titulo }}"
+      />
+      <img
+        src="{{ url_for('static', filename='images/arrow-left.svg') }}"
+        alt="Arrow left"
+      />
     </div>
     <div class="property-info">
-      <span class="property-type">Departamento en venta</span>
-      <h1 class="property-title">Casa linda en el campo</h1>
-      <p class="property-description">Lorem ipsum dolor sit amet consectetur adipiscing elit, class malesuada tortor
-        accumsan vitae, quam aenean lectus dui cum leo ridiculus rutrum pellentesque proin. Purus potenti dis semper
-        etiam ad augue penatibus molestie risus accumsan, class tempor.</p>
-      <div class="property-price">$100000</div>
-      <div class="property-location">San Martín 123, Rosario</div>
+      <span class="property-type"
+        >{{ post.tipo }}, en {{ post.modalidad }}</span
+      >
+      <h1 class="property-title">{{ post.titulo }}</h1>
+      <p class="property-description">{{ post.descripcion }}</p>
+      <div class="property-price">${{ post.precio }}</div>
+      <div class="property-location">
+        {{ post.direccion }}, {{ post.ciudad }}
+      </div>
       <div class="property-characteristics">
         <div class="characteristic-item">
-          <img src="icons/bathroom.png" alt="Baño">
-          <span>2 Baños</span>
+          <img
+            src="{{ url_for('static', filename='images/icono-banios.svg') }}"
+            alt="Icono baños"
+          />
+          <span
+            >{{ post.banios }} {{ 'baño' if post.banios == 1 else 'baños' }}
+          </span>
         </div>
         <div class="characteristic-item">
-          <img src="icons/bedroom.png" alt="Habitaciones">
-          <span>2 Habitaciones</span>
+          <img
+            src="{{ url_for('static', filename='images/icono-planos.svg') }}"
+            alt="Icono planos"
+          />
+          <span>
+            {{ post.habitaciones }} {{ 'hab' if post.habitaciones == 1 else
+            'habs' }}
+          </span>
         </div>
         <div class="characteristic-item">
-          <img src="icons/area.png" alt="Metros cuadrados">
-          <span>120 m<sup>2</sup></span>
+          <img
+            src="{{ url_for('static', filename='images/icono-m2.svg') }}"
+            alt="Icono m2"
+          />
+          <span>{{ post.metros_cuadrados }}m2</span>
         </div>
       </div>
     </div>
   </div>
-  <!--</div>-->
 </main>
 {% endblock %}
