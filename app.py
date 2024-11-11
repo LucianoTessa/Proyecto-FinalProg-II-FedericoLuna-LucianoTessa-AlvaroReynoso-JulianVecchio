@@ -1,14 +1,18 @@
 import os
 import datetime
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 
+
 load_dotenv()  # Cargar las variables de entorno desde el archivo .env
 
+
 app = Flask(__name__)
+# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:lomas0099@localhost/realstate" // BD BOCHA
+
 user = os.getenv("DATABASE_USER")
 password = os.getenv("DATABASE_PASSWORD")
 host = os.getenv("DATABASE_HOST")
@@ -114,7 +118,15 @@ def publicar():
 
 @app.route("/favoritos")
 def favoritos():
-    return render_template("favoritos.html")
+    favoritosLista = Post.query.all()  # Aquí debes filtrar las publicaciones favoritas según tu lógica
+    return render_template("favoritos.html",posts=favoritosLista)
+
+@app.route("/eliminar_favorito/<int:id>", methods=["POST"])
+def eliminar_favorito(id):
+    post = Post.query.get_or_404(id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for("favoritos"))
 
 
 @app.route("/buscar")
@@ -125,6 +137,10 @@ def buscar():
 
 # TODO: Crear las rutas de detalle de cada post. Con metodo delete y get
 
+@app.route("/post/<int:id>")
+def post_detail(id):
+    post = Post.query.get_or_404(id)
+    return render_template("post_detail.html", post=post)
 
 @app.route("/iniciar-sesion")
 def login():

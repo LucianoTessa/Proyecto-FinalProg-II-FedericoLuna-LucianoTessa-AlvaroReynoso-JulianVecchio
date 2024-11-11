@@ -1,0 +1,13 @@
+.container{
+    margin-bottom: 20px;
+    padding: 20px;
+    
+}
+
+.contMain{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
