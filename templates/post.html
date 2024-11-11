@@ -1,8 +1,38 @@
 {% extends "layout.html" %} {% block titulo %} Real state - Iniciar sesión {%
 endblock %} {% block content %}
-<main>
-  <div class="container">
-    <!-- Empezar aca -->
+<main class="main-post">
+  <!--<div class="container">-->
+  <!-- Empezar aca -->
+  <div class="property-card">
+    <div class="image-container">
+      <!-- Agrega la imagen del paisaje aquí -->
+      <img src="{{ url_for('static', filename='images/arrow-left.svg') }}"
+      alt="Arrow left"/>
+    </div>
+    <div class="property-info">
+      <span class="property-type">Departamento en venta</span>
+      <h1 class="property-title">Casa linda en el campo</h1>
+      <p class="property-description">Lorem ipsum dolor sit amet consectetur adipiscing elit, class malesuada tortor
+        accumsan vitae, quam aenean lectus dui cum leo ridiculus rutrum pellentesque proin. Purus potenti dis semper
+        etiam ad augue penatibus molestie risus accumsan, class tempor.</p>
+      <div class="property-price">$100000</div>
+      <div class="property-location">San Martín 123, Rosario</div>
+      <div class="property-characteristics">
+        <div class="characteristic-item">
+          <img src="icons/bathroom.png" alt="Baño">
+          <span>2 Baños</span>
+        </div>
+        <div class="characteristic-item">
+          <img src="icons/bedroom.png" alt="Habitaciones">
+          <span>2 Habitaciones</span>
+        </div>
+        <div class="characteristic-item">
+          <img src="icons/area.png" alt="Metros cuadrados">
+          <span>120 m<sup>2</sup></span>
+        </div>
+      </div>
+    </div>
   </div>
+  <!--</div>-->
 </main>
 {% endblock %}
