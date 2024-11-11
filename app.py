@@ -11,16 +11,16 @@ load_dotenv()  # Cargar las variables de entorno desde el archivo .env
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:lomas0099@localhost/realstate"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:lomas0099@localhost/realstate" // BD BOCHA
 
-# user = os.getenv("DATABASE_USER")
-# password = os.getenv("DATABASE_PASSWORD")
-# host = os.getenv("DATABASE_HOST")
-# db_name = os.getenv("DATABASE_NAME")
-# app.secret_key = os.getenv("SECRET_KEY")
-# app.config["SQLALCHEMY_DATABASE_URI"] = (
-#     f"mysql+pymysql://{user}:{password}@{host}/{db_name}"
-# )
+user = os.getenv("DATABASE_USER")
+password = os.getenv("DATABASE_PASSWORD")
+host = os.getenv("DATABASE_HOST")
+db_name = os.getenv("DATABASE_NAME")
+app.secret_key = os.getenv("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    f"mysql+pymysql://{user}:{password}@{host}/{db_name}"
+)
 app.config["UPLOAD_FOLDER"] = "static/posts"
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16 MB
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
