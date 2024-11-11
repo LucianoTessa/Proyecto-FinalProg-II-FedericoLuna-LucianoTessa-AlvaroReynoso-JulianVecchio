@@ -82,7 +82,7 @@
   {% endwith %}
 
   {% if delay %}
-  <script type="text/javascript">
+  <script>
     setTimeout(function () {
       window.location.href = "{{ url_for('index') }}";
     }, 3000);  // 3000 milisegundos = 3 segundos
