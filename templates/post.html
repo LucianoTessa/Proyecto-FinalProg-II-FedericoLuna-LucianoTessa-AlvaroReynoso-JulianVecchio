@@ -1,0 +1,57 @@
+{% extends "layout.html" %} {% block titulo %} Real state - {{ post.titulo }} {%
+endblock %} {% block content %}
+<main class="container">
+  <div class="main-post">
+    <div class="image-container">
+      <img
+        src="{{ url_for('static', filename='posts/' ~ post.imagen) }}"
+        class="property-image"
+        alt="{{ post.titulo }}"
+      />
+      <img
+        src="{{ url_for('static', filename='images/arrow-left.svg') }}"
+        alt="Arrow left"
+      />
+    </div>
+    <div class="property-info">
+      <span class="property-type"
+        >{{ post.tipo }}, en {{ post.modalidad }}</span
+      >
+      <h1 class="property-title">{{ post.titulo }}</h1>
+      <p class="property-description">{{ post.descripcion }}</p>
+      <div class="property-price">${{ post.precio }}</div>
+      <div class="property-location">
+        {{ post.direccion }}, {{ post.ciudad }}
+      </div>
+      <div class="property-characteristics">
+        <div class="characteristic-item">
+          <img
+            src="{{ url_for('static', filename='images/icono-banios.svg') }}"
+            alt="Icono baños"
+          />
+          <span
+            >{{ post.banios }} {{ 'baño' if post.banios == 1 else 'baños' }}
+          </span>
+        </div>
+        <div class="characteristic-item">
+          <img
+            src="{{ url_for('static', filename='images/icono-planos.svg') }}"
+            alt="Icono planos"
+          />
+          <span>
+            {{ post.habitaciones }} {{ 'hab' if post.habitaciones == 1 else
+            'habs' }}
+          </span>
+        </div>
+        <div class="characteristic-item">
+          <img
+            src="{{ url_for('static', filename='images/icono-m2.svg') }}"
+            alt="Icono m2"
+          />
+          <span>{{ post.metros_cuadrados }}m2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,75 @@
+@import url("./variables.css");
+
+.main-post {
+    margin-top: 6em;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.property-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+}
+
+.property-type {
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.property-title {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.property-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.property-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 15px 0;
+}
+
+.property-location {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.property-characteristics {
+    display: flex;
+    gap: 20px;
+}
+
+.characteristic-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.characteristic-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.characteristic-item span {
+    font-size: 14px;
+    color: #333;
+}
