@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.webp')}}"
+    />
+    <link
       rel="stylesheet"
       href="{{ url_for('static', filename='./global.css')}}"
     />
@@ -77,10 +81,18 @@
           <p>© Copyright 2024. Todos los derechos reservados</p>
           <div class="footer_socials">
             <a class="socials_a" href="#">
-              <img class="socials_img" src="./img/ig-icon-black.svg" alt="" />
+              <img
+                class="socials_img"
+                src="{{ url_for('static', filename='images/ig-icon-black.svg')}}"
+                alt="Icono de instagram"
+              />
             </a>
             <a class="socials_a" href="#">
-              <img class="socials_img" src="./img/x-icon-black.svg" alt="" />
+              <img
+                class="socials_img"
+                src="{{ url_for('static', filename='images/x-icon-black.svg')}}"
+                alt="Icono de X"
+              />
             </a>
           </div>
         </div>

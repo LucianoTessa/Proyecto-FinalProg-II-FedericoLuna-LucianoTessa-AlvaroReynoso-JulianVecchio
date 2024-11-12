@@ -3,66 +3,140 @@
 <main class="container main-publicar">
   <h1>Publicar mi propiedad</h1>
   <hr />
-  <form enctype="multipart/form-data" class="formulario" action="{{ url_for('publicar') }}" method="POST">
+  <form
+    enctype="multipart/form-data"
+    class="formulario"
+    id="formulario-publicar"
+    action="{{ url_for('publicar') }}"
+    method="POST"
+  >
     <div class="contenedor-formu">
-      <div>
-        <label for="titulo">Titulo</label><br />
-        <input class="input" name="titulo" type="text" id="titulo" placeholder="Casa comoda con jardin" /><br />
-        <small>Escribe una breve descripción de su propiedad</small><br />
+      <div class="form-item">
+        <label for="titulo">Titulo</label>
+        <input
+          class="input"
+          name="titulo"
+          type="text"
+          id="titulo"
+          placeholder="Casa comoda con jardin"
+        />
+        <small>Escribe una breve descripción de su propiedad</small>
+        <small class="form-error" id="error-titulo"></small>
       </div>
-      <div>
-        <label for="precio">Precio</label><br />
-        <input class="input" name="precio" type="text" id="precio" placeholder="200000" /><br />
-        <small>En caso de alquiler. Escriba el monto del mes</small><br />
+
+      <div class="form-item">
+        <label for="precio">Precio</label>
+        <input
+          class="input"
+          name="precio"
+          type="text"
+          id="precio"
+          placeholder="200000"
+        />
+        <small>En caso de alquiler. Escriba el monto del mes</small>
+        <small class="form-error" id="error-precio"></small>
       </div>
-      <div>
-        <label for="tipo">Tipo de propiedad</label><br />
+
+      <div class="form-item">
+        <label for="tipo">Tipo de propiedad</label>
         <select name="tipo" id="tipo" required>
           <option value="otros" disabled selected>Seleccionar el tipo</option>
           <option value="casa">Casa</option>
           <option value="departamento">Departamento</option>
-        </select><br />
-        <small>Tipo de propiedad</small><br />
+        </select>
+        <small>Tipo de propiedad</small>
+        <small class="form-error" id="error-tipo"></small>
       </div>
-      <div>
-        <label for="venta">Venta/Alquiler</label><br />
+
+      <div class="form-item">
+        <label for="venta">Venta/Alquiler</label>
         <select name="modalidad" id="venta" required>
           <option value="otros" disabled selected>Seleccionar el tipo</option>
           <option value="venta">Venta</option>
           <option value="alquiler">Alquiler</option>
-        </select><br />
-        <small>Qué desea hacer con su propiedad</small><br />
+        </select>
+        <small>Qué desea hacer con su propiedad</small>
+        <small class="form-error" id="error-venta"></small>
       </div>
-      <div>
-        <label for="banios">Baños</label><br />
-        <input class="input" name="banios" type="text" id="banios" placeholder="1" /><br />
+
+      <div class="form-item">
+        <label for="banios">Baños</label>
+        <input
+          class="input"
+          name="banios"
+          type="text"
+          id="banios"
+          placeholder="1"
+        />
+        <small class="form-error" id="error-banios"></small>
       </div>
-      <div>
-        <label for="habitaciones">Habitaciones</label><br />
-        <input class="input" name="habitaciones" type="text" id="habitaciones" placeholder="1" /><br />
+
+      <div class="form-item">
+        <label for="habitaciones">Habitaciones</label>
+        <input
+          class="input"
+          name="habitaciones"
+          type="text"
+          id="habitaciones"
+          placeholder="1"
+        />
+        <small class="form-error" id="error-habitaciones"></small>
       </div>
-      <div>
-        <label for="metros_cuadrados">Metros cuadrados</label><br />
-        <input class="input" name="metros_cuadrados" type="text" id="metros" placeholder="120" /><br />
-        <small>Tamaño en metros cuadrados de su propiedad</small><br />
+
+      <div class="form-item">
+        <label for="metros_cuadrados">Metros cuadrados</label>
+        <input
+          class="input"
+          name="metros_cuadrados"
+          type="text"
+          id="metros"
+          placeholder="120"
+        />
+        <small>Tamaño en metros cuadrados de su propiedad</small>
+        <small class="form-error" id="error-metros"></small>
       </div>
-      <div>
-        <label for="ciudad">Ciudad</label><br />
-        <input class="input" name="ciudad" type="text" id="ciudad" placeholder="Rosario" /><br />
-        <small>Ciudad donde está su propiedad</small><br />
+
+      <div class="form-item">
+        <label for="ciudad">Ciudad</label>
+        <input
+          class="input"
+          name="ciudad"
+          type="text"
+          id="ciudad"
+          placeholder="Rosario"
+        />
+        <small>Ciudad donde está su propiedad</small>
+        <small class="form-error" id="error-ciudad"></small>
       </div>
-      <div>
-        <label for="direccion">Dirección</label><br />
-        <input class="input" name="direccion" type="text" id="direccion" placeholder="San Martin 123" /><br />
-        <small>Dirección de donde está su propiedad</small><br />
+
+      <div class="form-item">
+        <label for="direccion">Dirección</label>
+        <input
+          class="input"
+          name="direccion"
+          type="text"
+          id="direccion"
+          placeholder="San Martin 123"
+        />
+        <small>Dirección de donde está su propiedad</small>
+        <small class="form-error" id="error-direccion"></small>
       </div>
-      <div class="descripcion">
-        <label for="descripcion">Descripción</label><br />
-        <textarea class="input" name="descripcion" rows="10" cols="40"
-          placeholder="Escriba su descripción..."></textarea><br />
-        <small>Describa su propiedad lo más detalladamente posible</small><br />
+
+      <div class="descripcion form-item">
+        <label for="descripcion">Descripción</label>
+        <textarea
+          class="input"
+          name="descripcion"
+          id="descripcion"
+          rows="10"
+          cols="40"
+          placeholder="Escriba su descripción..."
+        ></textarea>
+        <small>Describa su propiedad lo más detalladamente posible</small>
+        <small class="form-error" id="error-descripcion"></small>
       </div>
-      <div>
+
+      <div class="form-item">
         <label for="imagen">Imagen</label>
         <input type="file" name="imagen" id="imagen" />
       </div>
@@ -71,21 +145,12 @@
       Publicar
     </button>
   </form>
-
   <!-- Verifica si hay mensajes flash -->
   {% with messages = get_flashed_messages(with_categories=true) %} {% if
   messages %} {% for category, message in messages %}
   <!-- Mostrar el mensaje flash -->
-  <div class="alert alert-{{ category }}">
-    {{ message }}
-  </div>
-  {% endfor %}
-
-
-  {% endif %}
-  {% endwith %}
-
-  {% if delay %}
+  <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %} {% endif %} {% endwith %} {% if delay %}
   <script type="text/javascript">
     setTimeout(function () {
       window.location.href = "{{ url_for('index') }}";
@@ -93,4 +158,5 @@
   </script>
   {% endif %}
 </main>
+<script src="{{ url_for('static', filename='scripts/validar-publicar.js') }}"></script>
 {% endblock %}

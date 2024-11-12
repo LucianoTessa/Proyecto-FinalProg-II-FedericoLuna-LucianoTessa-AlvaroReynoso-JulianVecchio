@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block title %}Real state - Favoritos{% endblock
+{% extends "layout.html" %} {% block titulo %}Real state - Favoritos{% endblock
 %} {% block content %}
 <main>
   <div class="titleContainter container">
@@ -7,7 +7,7 @@
   </div>
   <div class="container main-favoritos">
     {% for post in posts %}
-    <div class="embla__slide listing_card">
+    <div class="listing_card">
       <img
         class="listing_card_img"
         src="{{ url_for('static', filename='posts/' + post.imagen) }}"

@@ -489,5 +489,5 @@ endblock %} {% block content %}
   prevButtonNode.addEventListener("click", embla.scrollPrev, false);
   nextButtonNode.addEventListener("click", embla.scrollNext, false);
 </script>
-<script src="../scripts/validar-contacto.js"></script>
+<script src="{{ url_for('static', filename='scripts/validar-contacto.js') }}"></script>
 {% endblock %}
