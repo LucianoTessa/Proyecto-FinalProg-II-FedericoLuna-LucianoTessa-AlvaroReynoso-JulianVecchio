@@ -27,7 +27,11 @@
       </form>
     </div>
     <div class="card_container">
-      {% for post in posts %}
+      {% if posts|length == 0 %}
+      <div class="no-resultados">
+        <p>No se encontraron resultados.</p>
+      </div>
+      {% else %} {% for post in posts %}
       <a class="card_link" href="/post/{{ post.id }}">
         <div class="card">
           <img
@@ -95,7 +99,7 @@
           </div>
         </div>
       </a>
-      {% endfor %}
+      {% endfor %} {% endif %}
     </div>
   </div>
 </main>

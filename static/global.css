@@ -556,6 +556,17 @@ body {
   font-size: 3em;
 }
 
+.no-resultados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-resultados > p {
+  font-size: 2em;
+  font-weight: 700;
+}
+
 /* Tablets */
 @media screen and (min-width: 768px) {
   .container {

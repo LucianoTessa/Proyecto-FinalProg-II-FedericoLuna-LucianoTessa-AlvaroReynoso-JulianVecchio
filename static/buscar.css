@@ -16,6 +16,7 @@
   gap: 2em;
   flex-direction: column;
   margin-bottom: 5em;
+  min-height: 50vh;
 }
 
 .card{
