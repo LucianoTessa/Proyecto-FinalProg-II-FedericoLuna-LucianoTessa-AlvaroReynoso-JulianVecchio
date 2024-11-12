@@ -567,6 +567,12 @@ body {
   font-weight: 700;
 }
 
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: .4em;
+}
+
 /* Tablets */
 @media screen and (min-width: 768px) {
   .container {

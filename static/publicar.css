@@ -29,7 +29,6 @@ select {
   border: solid 1px rgb(221, 225, 230);
   width: 100%;
   padding: 3.3%;
-  font-size: 14px;
   border-radius: var(--border-radius-md);
 }
 
@@ -38,7 +37,6 @@ select {
 }
 
 .boton-subir {
-  font-size: 14px;
   background-color: whitesmoke;
   padding: 1% 7%;
   border: solid 0.1px;
