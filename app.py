@@ -42,6 +42,7 @@ class Post(db.Model):
     imagen = db.Column(db.String(255))
     direccion = db.Column(db.String(255))
     fecha_publicacion = db.Column(db.DateTime)
+    esFavorito = db.Column(db.Boolean, default=False)
 
     def __init__(
         self,
@@ -57,6 +58,7 @@ class Post(db.Model):
         imagen,
         direccion,
         fecha_publicacion,
+        esFavorito
     ):
         self.titulo = titulo
         self.descripcion = descripcion
@@ -70,6 +72,7 @@ class Post(db.Model):
         self.imagen = imagen
         self.direccion = direccion
         self.fecha_publicacion = fecha_publicacion
+        self.esFavorito= esFavorito
 
 
 @app.route("/publicar", methods=["GET", "POST"])
@@ -129,6 +132,14 @@ def eliminar_favorito(id):
     db.session.delete(post)
     db.session.commit()
     return redirect(url_for("favoritos"))
+
+@app.route("/marcar_favorito/<int:id>", methods=["POST"])
+def marcar_favorito(id):
+    post = Post.query.get_or_404(id)
+    post.esFavorito = not post.esFavorito  # Alternar el estado de esFavorito
+    db.session.commit()
+    return redirect(url_for("favoritos"))
+
 
 
 @app.route("/buscar")
