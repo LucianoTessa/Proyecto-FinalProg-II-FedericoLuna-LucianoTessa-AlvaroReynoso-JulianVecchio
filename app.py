@@ -118,12 +118,10 @@ def publicar():
 
     return render_template("publicar.html")
 
-
 @app.route("/favoritos")
 def favoritos():
-    # TODO: Obtener SOLO los posts favoritos, no todos
-    favoritosLista = Post.query.all()
-    return render_template("favoritos.html", posts=favoritosLista)
+    favoritos = Post.query.filter_by(esFavorito=True).all()  # Filtrar solo los posts favoritos
+    return render_template("favoritos.html", posts=favoritos)
 
 
 @app.route("/eliminar_favorito/<int:id>", methods=["POST"])
@@ -139,7 +137,11 @@ def marcar_favorito(id):
     post = Post.query.get_or_404(id)
     post.esFavorito = not post.esFavorito  # Alternar el estado de esFavorito
     db.session.commit()
-    return redirect(url_for("favoritos"))
+    # Redirigir a la página de favoritos si se desmarca como favorito, de lo contrario, redirigir a la página de búsqueda
+    if post.esFavorito:
+        return redirect(url_for("buscar"))
+    else:
+        return redirect(url_for("favoritos"))
 
 
 @app.route("/buscar")

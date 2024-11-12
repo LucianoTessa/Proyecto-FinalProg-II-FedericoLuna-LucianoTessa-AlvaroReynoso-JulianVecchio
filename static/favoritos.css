@@ -21,3 +21,18 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
+.like_button.favorite {
+  border: 1px solid var(--border-color);
+  background-color: white;
+  padding: .9em;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorite .like_button_hearth > path {
+  stroke: var(--primary-color);
+    fill:var(--primary-color) ;
+}
