@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
+from flask_bcrypt import Bcrypt
 from werkzeug.security import generate_password_hash, check_password_hash
 
 load_dotenv()  # Cargar las variables de entorno desde el archivo .env
@@ -20,22 +21,42 @@ app.config["SQLALCHEMY_DATABASE_URI"] = (
     f"mysql+pymysql://{user}:{password}@{host}/{db_name}"
 )
 
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{user}:{password}@{host}/{db_name}"
 app.config["UPLOAD_FOLDER"] = "static/posts"
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16 MB
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.secret_key = os.getenv('SECRET_KEY')
 
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 ma = Marshmallow(app)
 
-# Crear la base de datos y las tablas
-with app.app_context():
-    db.create_all()
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
+    apellido = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
-    password = db.Column(db.String(150), nullable=False)
+    password = db.Column(db.String(1000), nullable=False)
+    
+    def __init__(self, username, email, password, apellido):
+        self.username = username
+        self.email = email
+        self.password = password
+        self.apellido = apellido
+
+class MensajeForm(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    mensaje = db.Column(db.Text, nullable=False)
+
+    def __init__(self, nombre, email, mensaje):
+        self.nombre = nombre
+        self.email = email
+        self.mensaje = mensaje
+    
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -82,6 +103,10 @@ class Post(db.Model):
         self.direccion = direccion
         self.fecha_publicacion = fecha_publicacion
         self.esFavorito = esFavorito
+        
+# Crear la base de datos y las tablas
+with app.app_context():
+    db.create_all()
 
 @app.route("/publicar", methods=["GET", "POST"])
 def publicar():
@@ -126,24 +151,32 @@ def publicar():
 
     return render_template("publicar.html")
 
+@app.route("/enviar_mensaje", methods=["POST"])
+def enviar_mensaje():
+    nombre = request.form["nombre"]
+    email = request.form["email"]
+    mensaje = request.form["mensaje"]
+
+    nuevo_mensaje = MensajeForm(nombre=nombre, email=email, mensaje=mensaje)
+    db.session.add(nuevo_mensaje)
+    db.session.commit()
+
+    flash("Mensaje enviado exitosamente", "success")
+    return redirect(url_for("index"))
+
 @app.route("/favoritos")
 def favoritos():
-    favoritos = Post.query.filter_by(esFavorito=True).all()  # Filtrar solo los posts favoritos
+    favoritos = Post.query.filter_by(
+        esFavorito=True
+    ).all()  # Filtrar solo los posts favoritos
     return render_template("favoritos.html", posts=favoritos)
 
-@app.route("/eliminar_favorito/<int:id>", methods=["POST"])
-def eliminar_favorito(id):
-    post = Post.query.get_or_404(id)
-    db.session.delete(post)
-    db.session.commit()
-    return redirect(url_for("favoritos"))
-
-@app.route("/marcar_favorito/<int:id>", methods=["POST"])
-def marcar_favorito(id):
-    post = Post.query.get_or_404(id)
+@app.route("/toggle_favorite/<int:post_id>", methods=["POST"])
+def toggle_favorite(post_id):
+    post = Post.query.get_or_404(post_id)
     post.esFavorito = not post.esFavorito  # Alternar el estado de esFavorito
     db.session.commit()
-    return redirect(url_for("buscar"))  # Redirigir de vuelta a la página de búsqueda
+    return '', 204  # Responder con un estado 204 No Content
 
 @app.route("/buscar")
 def buscar():
@@ -158,7 +191,7 @@ def post_detail(id):
         post = Post.query.get_or_404(id)
         db.session.delete(post)
         db.session.commit()
-        return redirect(url_for("buscar"))
+        return render_template("buscar.html")
     elif request.method == "GET":
         post = Post.query.get_or_404(id)
         return render_template("post.html", post=post)
@@ -170,12 +203,12 @@ def iniciar_sesion():
         password = request.form["password"]
         user = User.query.filter_by(email=email).first()
         
-        if user and check_password_hash(user.password, password):
+        if user and bcrypt.check_password_hash(user.password, password):
             session["user_id"] = user.id
             flash("Inicio de sesión exitoso", "success")
             return redirect(url_for("index", welcome_message=f"Bienvenido, {user.username}!"))
         else:
-            flash("Correo o contraseña incorrectos", "danger")
+            flash("Usuario o contraseña incorrecta", "danger")
     
     return render_template("iniciar_sesion.html")
 
@@ -183,6 +216,7 @@ def iniciar_sesion():
 def registrar():
     if request.method == "POST":
         username = request.form["username"]
+        apellido = request.form["apellido"]
         email = request.form["email"]
         password = request.form["password"]
         confirm_password = request.form["confirm_password"]
@@ -197,13 +231,13 @@ def registrar():
             flash("El nombre de usuario o el correo electrónico ya están en uso", "danger")
             return redirect(url_for("registrar"))
 
-        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         
-        new_user = User(username=username, email=email, password=hashed_password)
+        new_user = User(username=username, apellido=apellido, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         
-        flash("Cuenta creada exitosamente", "success")
+        flash("Usuario registrado correctamente", "success")
         return redirect(url_for("index", welcome_message=f"Usuario registrado exitosamente, {username}!"))
     
     return render_template("registrarse.html")
@@ -211,7 +245,9 @@ def registrar():
 @app.route("/")
 def index():
     welcome_message = request.args.get("welcome_message")
-    return render_template("index.html", welcome_message=welcome_message)
+    posts = Post.query.all()
+    return render_template("index.html", welcome_message=welcome_message, posts=posts)
+
 
 if __name__ == "__main__":
     with app.app_context():

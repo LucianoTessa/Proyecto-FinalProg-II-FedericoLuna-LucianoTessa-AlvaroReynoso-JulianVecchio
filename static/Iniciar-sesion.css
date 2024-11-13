@@ -1,4 +1,4 @@
-@import url(./styles/variables.css);
+@import url(./variables.css);
 
 .main-inicio-sesion {
   min-height: 80vh;
@@ -130,3 +130,4 @@
   border-top: 1px solid gray;
   padding-top: 20px;
 }
+

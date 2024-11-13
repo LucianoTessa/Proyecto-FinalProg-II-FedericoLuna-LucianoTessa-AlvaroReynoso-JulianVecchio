@@ -16,7 +16,7 @@
       <img class="listing_card_img" src="{{ url_for('static', filename='images/default-image.png') }}"
         alt="Imagen no disponible" />
       {% endif %}
-      <button class="like_button {% if post.esFavorito %}favorite{% endif %}">
+      <button class="like_button {% if post.esFavorito %}favorite{% endif %}" data-post-id="{{ post.id }}">
         <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
@@ -27,6 +27,7 @@
       <div class="card_data">
         <div class="card_info">
           <p class="card_type">{{ post.tipo }}</p>
+          <p class="card_title">{{ post.titulo }}</p>
           <p class="card_price">{{ post.precio }}</p>
         </div>
         <div class="card_location">
@@ -35,33 +36,42 @@
         </div>
         <div class="card_stats">
           <div class="card_stats_item">
-            <img src="../img/icono-banios.svg" alt="" />
+            <img src="{{ url_for('static', filename='images/icono-banios.svg') }}" alt="" />
             <p class="stats_item_p">{{ post.banios }} baño(s)</p>
           </div>
           <div class="card_stats_item">
-            <img src="../img/icono-planos.svg" alt="" />
+            <img src="{{ url_for('static', filename='images/icono-planos.svg') }}" alt="" />
             <p class="stats_item_p">{{ post.habitaciones }} hab(s)</p>
           </div>
           <div class="card_stats_item">
-            <img src="../img/icono-m2.svg" alt="" />
+            <img src="{{ url_for('static', filename='images/icono-m2.svg') }}" alt="" />
             <p class="stats_item_p">{{ post.metros_cuadrados }}m2</p>
           </div>
         </div>
-        <form action="{{ url_for('marcar_favorito', id=post.id) }}" method="POST">
-          <button type="submit" class="favorite-button">
-            {% if post.esFavorito %}
-            Desmarcar Favorito
-            {% else %}
-            Marcar Favorito
-            {% endif %}
-          </button>
-        </form>
-        <form action="{{ url_for('eliminar_favorito', id=post.id) }}" method="POST">
-          <button type="submit">Eliminar</button>
-        </form>
       </div>
     </div>
     {% endfor %}
   </div>
 </main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".like_button").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevenir la navegación al hacer clic en el botón
+        const postId = this.getAttribute("data-post-id");
+        toggleFavorite(postId);
+      });
+    });
+  });
+
+  function toggleFavorite(postId) {
+    fetch(`/toggle_favorite/${postId}`, {
+      method: 'POST',
+    }).then(response => {
+      if (response.ok) {
+        location.reload();
+      }
+    });
+  }
+</script>
 {% endblock %}

@@ -7,6 +7,19 @@
       <h1>Registrarse</h1>
       <p>Ingresá tu email para crear una cuenta</p>
     </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var messages = {{ messages| tojson
+      }};
+      if (messages.length > 0) {
+        alert(messages[0][1]); // Mostrar solo el primer mensaje
+      }
+          });
+    </script>
+    {% endif %}
+    {% endwith %}
     <form id="form-registrarse" method="POST" novalidate>
       <div class="nom-ape texto">
         <div>
@@ -28,25 +41,18 @@
       <div class="info-contraseña">
         <div class="texto-contraseña texto">
           <label for="contraseña">Contraseña</label>
+          <input id="contraseña" name="password" type="password" placeholder="***********" class="input" required />
+          <div class="form-error" id="contraseña-error"></div>
         </div>
-        <input id="contraseña" name="password" type="password" placeholder="***********" class="input contraseña"
-          required />
-        <div class="form-error" id="contraseña-error"></div>
-      </div>
-      <div class="info-contraseña">
         <div class="texto-contraseña texto">
           <label for="confirmar-contraseña">Confirmar Contraseña</label>
+          <input id="confirmar-contraseña" name="confirm_password" type="password" placeholder="***********"
+            class="input" required />
+          <div class="form-error" id="confirmar-contraseña-error"></div>
         </div>
-        <input id="confirmar-contraseña" name="confirm_password" type="password" placeholder="***********"
-          class="input contraseña" required />
-        <div class="form-error" id="confirmar-contraseña-error"></div>
       </div>
-      <button type="submit" class="button iniciar-sesion">Registrarse</button>
+      <button type="submit" class="button registrarse">Registrarse</button>
     </form>
-    <div class="registro texto">
-      <div>¿Ya tienes una cuenta?</div>
-      <a href="{{ url_for('iniciar_sesion') }}">Iniciar Sesión</a>
-    </div>
   </div>
 </main>
 
@@ -58,7 +64,6 @@
   const emailInput = document.getElementById('correo');
   const passwordInput = document.getElementById('contraseña');
   const confirmPasswordInput = document.getElementById('confirmar-contraseña');
-
   const nombreError = document.getElementById('nombre-error');
   const apellidoError = document.getElementById('apellido-error');
   const emailError = document.getElementById('correo-error');

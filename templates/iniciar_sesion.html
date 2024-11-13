@@ -7,6 +7,19 @@
       <h1>Iniciar sesión</h1>
       <p>Ingresá tu email para acceder a tu cuenta</p>
     </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var messages = {{ messages| tojson
+      }};
+      if (messages.length > 0) {
+        alert(messages[0][1]); // Mostrar solo el primer mensaje
+      }
+          });
+    </script>
+    {% endif %}
+    {% endwith %}
     <form id="form-iniciar-sesion" method="POST" novalidate>
       <div class="email">
         <label for="correo" class="texto">Email</label>
