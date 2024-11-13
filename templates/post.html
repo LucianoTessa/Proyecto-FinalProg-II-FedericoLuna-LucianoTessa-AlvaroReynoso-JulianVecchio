@@ -51,7 +51,35 @@ endblock %} {% block content %}
           <span>{{ post.metros_cuadrados }}m2</span>
         </div>
       </div>
+      <form
+        id="delete-form"
+        action="{{ url_for('post_detail', id=post.id) }}"
+        method="POST"
+      >
+        <button class="button delete-button" type="submit">
+          Eliminar post
+        </button>
+      </form>
     </div>
   </div>
 </main>
+<script>
+  document
+    .getElementById("delete-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      fetch(this.action, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        if (response.ok) {
+          window.location.href = "/buscar"; // Redirige a la página principal u otra página
+        } else {
+          alert("Error al eliminar el post");
+        }
+      });
+    });
+</script>
 {% endblock %}

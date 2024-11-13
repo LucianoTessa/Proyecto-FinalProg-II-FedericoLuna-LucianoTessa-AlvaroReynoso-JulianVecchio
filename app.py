@@ -1,14 +1,12 @@
 import os
 import datetime
-from flask import Flask, render_template, request, flash, url_for, redirect
+from flask import Flask, render_template, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 
-
 load_dotenv()  # Cargar las variables de entorno desde el archivo .env
-
 
 app = Flask(__name__)
 
@@ -118,30 +116,22 @@ def publicar():
 
     return render_template("publicar.html")
 
+
 @app.route("/favoritos")
 def favoritos():
-    favoritos = Post.query.filter_by(esFavorito=True).all()  # Filtrar solo los posts favoritos
+    favoritos = Post.query.filter_by(
+        esFavorito=True
+    ).all()  # Filtrar solo los posts favoritos
     return render_template("favoritos.html", posts=favoritos)
 
 
-@app.route("/eliminar_favorito/<int:id>", methods=["POST"])
-def eliminar_favorito(id):
-    post = Post.query.get_or_404(id)
-    db.session.delete(post)
-    db.session.commit()
-    return redirect(url_for("favoritos"))
-
-
-@app.route("/marcar_favorito/<int:id>", methods=["POST"])
-def marcar_favorito(id):
-    post = Post.query.get_or_404(id)
-    post.esFavorito = not post.esFavorito  # Alternar el estado de esFavorito
-    db.session.commit()
-    # Redirigir a la página de favoritos si se desmarca como favorito, de lo contrario, redirigir a la página de búsqueda
-    if post.esFavorito:
-        return redirect(url_for("buscar"))
-    else:
-        return redirect(url_for("favoritos"))
+@app.route("/toggle_favorite/<int:post_id>", methods=["POST"])
+def toggle_favorite(post_id):
+    post = Post.query.get(post_id)
+    if post:
+        post.esFavorito = not post.esFavorito
+        db.session.commit()
+    return jsonify(success=True)
 
 
 @app.route("/buscar")
@@ -150,16 +140,13 @@ def buscar():
     return render_template("buscar.html", posts=postList)
 
 
-# TODO: Crear las rutas de detalle de cada post. Con metodo delete y get
-
-
 @app.route("/post/<int:id>", methods=["GET", "DELETE"])
 def post_detail(id):
     if request.method == "DELETE":
         post = Post.query.get_or_404(id)
         db.session.delete(post)
         db.session.commit()
-        return redirect(url_for("buscar"))
+        return render_template("buscar.html")
     elif request.method == "GET":
         post = Post.query.get_or_404(id)
         return render_template("post.html", post=post)
