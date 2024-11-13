@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block titulo %} Real state - Iniciar sesión {% endblock %}
+{% block content %}
+<main class="main-inicio-sesion">
+  <div class="container inicioSesion">
+    <div class="h1-subtitulo">
+      <h1>Iniciar sesión</h1>
+      <p>Ingresá tu email para acceder a tu cuenta</p>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var messages = {{ messages| tojson
+      }};
+      if (messages.length > 0) {
+        alert(messages[0][1]); // Mostrar solo el primer mensaje
+      }
+          });
+    </script>
+    {% endif %}
+    {% endwith %}
+    <form id="form-iniciar-sesion" method="POST" novalidate>
+      <div class="email">
+        <label for="correo" class="texto">Email</label>
+        <input id="correo" name="email" type="email" placeholder="usuario@falso.com" class="input correo" required />
+        <div class="form-error" id="correo-error"></div>
+      </div>
+      <div class="info-contraseña">
+        <div class="texto-contraseña">
+          <label for="contrasenia" class="texto"> Contraseña</label>
+          <a href="#" class="texto">¿Olvidaste tu contraseña?</a>
+        </div>
+        <input id="contrasenia" name="password" type="password" placeholder="***********" class="input" required />
+        <div class="form-error" id="contrasenia-error"></div>
+      </div>
+      <button type="submit" class="button iniciar-sesion">Iniciar sesión</button>
+    </form>
+    <div class="registro texto">
+      <div>¿No tienes una cuenta?</div>
+      <a href="{{ url_for('registrar') }}">Registrarse</a>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Obtener elementos del formulario
+  const form = document.getElementById('form-iniciar-sesion');
+  const emailInput = document.getElementById('correo');
+  const passwordInput = document.getElementById('contrasenia');
+  const emailError = document.getElementById('correo-error');
+  const passwordError = document.getElementById('contrasenia-error');
+
+  // Función para validar el email
+  function validarEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
+  // Manejar el evento de envío del formulario
+  form.addEventListener('submit', (event) => {
+    let isValid = true;
+
+    // Resetear mensajes de error
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+    // Validar el campo de email
+    if (!emailInput.value) {
+      emailError.textContent = 'El campo de email es obligatorio.';
+      isValid = false;
+    } else if (!validarEmail(emailInput.value)) {
+      emailError.textContent = 'Por favor, ingresa un email válido.';
+      isValid = false;
+    }
+
+    // Validar el campo de contraseña
+    if (!passwordInput.value) {
+      passwordError.textContent = 'El campo de contraseña es obligatorio.';
+      isValid = false;
+    }
+
+    // Si hay errores, evitar el envío del formulario
+    if (!isValid) {
+      event.preventDefault();
+    }
+  });
+</script>
+
+<style>
+  .form-error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+</style>
+{% endblock %}

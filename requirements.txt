@@ -6,3 +6,4 @@ Flask
 Jinja2
 python-dotenv
 cryptography
+bcrypt

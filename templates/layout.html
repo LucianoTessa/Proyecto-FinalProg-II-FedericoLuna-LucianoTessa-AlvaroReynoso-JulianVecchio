@@ -1,102 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='images/logo.webp')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./global.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./publicar.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./favoritos.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./buscar.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./iniciar-sesion.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./registrarse.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='./post.css')}}"
-    />
-    <title>{% block titulo %} {% endblock %}</title>
-  </head>
-  <body>
-    <header>
-      <div class="container header">
-        <a href="/" class="logo">
-          <img src="{{ url_for('static', filename='images/logo.webp')}}" />
-        </a>
-        <nav class="nav">
-          <a class="link" href="/buscar">Buscar</a>
-          <a class="link" href="/publicar">Publicar</a>
-          <a class="link" href="/favoritos">Favoritos</a>
-        </nav>
-        <a href="/iniciar-sesion" class="button">Iniciar sesión</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.webp')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./global.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./publicar.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./favoritos.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./buscar.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./iniciar-sesion.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./registrarse.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='./post.css')}}" />
+  <title>{% block titulo %} {% endblock %}</title>
+</head>
+
+<body>
+  <header>
+    <div class="container header">
+      <a href="/" class="logo">
+        <img src="{{ url_for('static', filename='images/logo.webp')}}" />
+      </a>
+      <nav class="nav">
+        <a class="link" href="/buscar">Buscar</a>
+        <a class="link" href="/publicar">Publicar</a>
+        <a class="link" href="/favoritos">Favoritos</a>
+      </nav>
+      <a href="/iniciar-sesion" class="button">Iniciar sesión</a>
+    </div>
+  </header>
+  <!-- Contenido -->
+  {% block content %} {% endblock %}
+  <footer>
+    <div class="container footer_container">
+      <div class="footer_logo">
+        <img class="footer_logo_img" src="{{ url_for('static', filename='images/logo.webp')}}" alt="Logo" />
+        <p class="footer_logo_title">Real state</p>
       </div>
-    </header>
-    <!-- Contenido -->
-    {% block content %} {% endblock %}
-    <footer>
-      <div class="container footer_container">
-        <div class="footer_logo">
-          <img
-            class="footer_logo_img"
-            src="{{ url_for('static', filename='images/logo.webp')}}"
-            alt="Logo"
-          />
-          <p class="footer_logo_title">Real state</p>
-        </div>
-        <div class="footer_nav">
-          <ul class="footer_list">
-            <li class="footer_list_item">
-              <a class="footer_list_a" href="/">Home</a>
-            </li>
-            <li class="footer_list_item">
-              <a class="footer_list_a" href="/publicar">Vender</a>
-            </li>
-            <li class="footer_list_item">
-              <a class="footer_list_a" href="/buscar">Comprar</a>
-            </li>
-          </ul>
-        </div>
-        <div class="separator"></div>
-        <div class="footer_copy">
-          <p>© Copyright 2024. Todos los derechos reservados</p>
-          <div class="footer_socials">
-            <a class="socials_a" href="#">
-              <img
-                class="socials_img"
-                src="{{ url_for('static', filename='images/ig-icon-black.svg')}}"
-                alt="Icono de instagram"
-              />
-            </a>
-            <a class="socials_a" href="#">
-              <img
-                class="socials_img"
-                src="{{ url_for('static', filename='images/x-icon-black.svg')}}"
-                alt="Icono de X"
-              />
-            </a>
-          </div>
+      <div class="footer_nav">
+        <ul class="footer_list">
+          <li class="footer_list_item">
+            <a class="footer_list_a" href="/">Home</a>
+          </li>
+          <li class="footer_list_item">
+            <a class="footer_list_a" href="/publicar">Vender</a>
+          </li>
+          <li class="footer_list_item">
+            <a class="footer_list_a" href="/buscar">Comprar</a>
+          </li>
+        </ul>
+      </div>
+      <div class="separator"></div>
+      <div class="footer_copy">
+        <p>© Copyright 2024. Todos los derechos reservados</p>
+        <div class="footer_socials">
+          <a class="socials_a" href="#">
+            <img class="socials_img" src="{{ url_for('static', filename='images/ig-icon-black.svg')}}"
+              alt="Icono de instagram" />
+          </a>
+          <a class="socials_a" href="#">
+            <img class="socials_img" src="{{ url_for('static', filename='images/x-icon-black.svg')}}"
+              alt="Icono de X" />
+          </a>
         </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
