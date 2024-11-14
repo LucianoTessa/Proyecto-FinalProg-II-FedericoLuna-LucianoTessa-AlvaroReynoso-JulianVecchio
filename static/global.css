@@ -8,7 +8,10 @@
   box-sizing: border-box;
 }
 
-html, button, textarea, input {
+html,
+button,
+textarea,
+input {
   font-family: "Inter", sans-serif;
   font-style: normal;
 }
@@ -49,11 +52,12 @@ header {
 
 .nav {
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 .nav a {
   color: #262626;
+  text-decoration: none;
 }
 
 .button {
@@ -292,14 +296,14 @@ body {
 #formulario-contacto {
   display: flex;
   flex-direction: column;
-  gap: .3em;
+  gap: 0.3em;
 }
 
 .form-error {
   color: red;
-  font-size: .8em;
+  font-size: 0.8em;
   line-height: 1.3em;
-  margin-top: .2em;
+  margin-top: 0.2em;
 }
 
 .h5 {
@@ -424,6 +428,10 @@ body {
 .stats_item_p {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+.frame:hover {
+  opacity: 0.7;
 }
 
 .imgContDivider {
@@ -570,7 +578,7 @@ body {
 .form-item {
   display: flex;
   flex-direction: column;
-  gap: .4em;
+  gap: 0.4em;
 }
 
 /* Tablets */

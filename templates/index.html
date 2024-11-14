@@ -75,12 +75,12 @@ endblock %} {% block content %}
               </button>
               <div class="card_data">
                 <div class="card_info">
-                  <p class="card_type">Casa en venta</p>
-                  <p class="card_price">USD 465.000</p>
+                  <p class="card_type">{{post.tipo}} en {{post.modalidad}}</p>
+                  <p class="card_price">${{post.precio}}</p>
                 </div>
                 <div class="card_location">
-                  <p class="card_direction">Riccheri 1030</p>
-                  <p class="card_city">Funes</p>
+                  <p class="card_direction">{{post.direccion}}</p>
+                  <p class="card_city">{{post.ciudad}}</p>
                 </div>
                 <div class="card_stats">
                   <div class="card_stats_item">
@@ -88,21 +88,21 @@ endblock %} {% block content %}
                       src="{{ url_for('static', filename='images/icono-banios.svg') }}"
                       alt=""
                     />
-                    <p class="stats_item_p">2 baño</p>
+                    <p class="stats_item_p">{{post.banios}} baños</p>
                   </div>
                   <div class="card_stats_item">
                     <img
                       src="{{ url_for('static', filename='images/icono-planos.svg') }}"
                       alt=""
                     />
-                    <p class="stats_item_p">6 habs</p>
+                    <p class="stats_item_p">{{post.habitaciones}} habs</p>
                   </div>
                   <div class="card_stats_item">
                     <img
                       src="{{ url_for('static', filename='images/icono-m2.svg') }}"
                       alt=""
                     />
-                    <p class="stats_item_p">230m2</p>
+                    <p class="stats_item_p">{{post.metros_cuadrados}} m2</p>
                   </div>
                 </div>
               </div>
@@ -272,7 +272,9 @@ endblock %} {% block content %}
     </div>
   </section>
 </main>
+
 <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+
 <script type="text/javascript">
   const rootNode = document.querySelector(".embla");
   const viewportNode = rootNode.querySelector(".embla__viewport");
@@ -283,6 +285,7 @@ endblock %} {% block content %}
   prevButtonNode.addEventListener("click", embla.scrollPrev, false);
   nextButtonNode.addEventListener("click", embla.scrollNext, false);
 </script>
+
 <script>
   document
     .getElementById("listarButton")
@@ -290,6 +293,7 @@ endblock %} {% block content %}
       window.location.href = "{{ url_for('publicar') }}";
     });
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     var welcomeMessage = "{{ welcome_message }}";
@@ -308,6 +312,7 @@ endblock %} {% block content %}
     });
   }
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     var welcomeMessage = "{{ welcome_message }}";
@@ -381,6 +386,7 @@ endblock %} {% block content %}
     });
   }
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     var welcomeMessage = "{{ welcome_message }}";
