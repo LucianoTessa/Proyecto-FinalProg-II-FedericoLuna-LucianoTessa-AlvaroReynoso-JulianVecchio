@@ -1,9 +1,7 @@
 flask-sqlalchemy 
-marshmallow-sqlalchemy 
-flask-marshmallow 
 pymysql 
 Flask
 Jinja2
 python-dotenv
 cryptography
-bcrypt
+flask_bcrypt

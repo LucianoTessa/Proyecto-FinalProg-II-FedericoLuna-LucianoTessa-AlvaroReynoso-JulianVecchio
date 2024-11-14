@@ -1,27 +1,49 @@
-{% extends "layout.html" %}
-{% block titulo %} Real state - Favoritos {% endblock %}
-{% block content %}
+{% extends "layout.html" %} {% block titulo %} Real state - Favoritos {%
+endblock %} {% block content %}
 <main>
   <div class="titleContainter container">
     <h1 class="titleFav">Tus Favoritos</h1>
     <div class="separator"></div>
   </div>
   <div class="container main-favoritos">
-    {% for post in posts %}
+    {% if posts|length == 0 %}
+    <div class="no-resultados no-favoritos">
+      <p>No hay favoritos guardados.</p>
+    </div>
+    {% else %} {% for post in posts %}
     <div class="listing_card">
       {% if post.imagen %}
-      <img class="listing_card_img" src="{{ url_for('static', filename='posts/' + post.imagen) }}"
-        alt="{{ post.titulo }}" />
+      <img
+        class="listing_card_img"
+        src="{{ url_for('static', filename='posts/' + post.imagen) }}"
+        alt="{{ post.titulo }}"
+      />
       {% else %}
-      <img class="listing_card_img" src="{{ url_for('static', filename='images/default-image.png') }}"
-        alt="Imagen no disponible" />
+      <img
+        class="listing_card_img"
+        src="{{ url_for('static', filename='images/default-image.png') }}"
+        alt="Imagen no disponible"
+      />
       {% endif %}
-      <button class="like_button {% if post.esFavorito %}favorite{% endif %}" data-post-id="{{ post.id }}">
-        <svg class="like_button_hearth" width="17" height="15" viewBox="0 0 17 15" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+      <button
+        class="like_button {% if post.esFavorito %}favorite{% endif %}"
+        data-post-id="{{ post.id }}"
+      >
+        <svg
+          class="like_button_hearth"
+          width="17"
+          height="15"
+          viewBox="0 0 17 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M14.0196 2.47132C13.6851 2.13571 13.2877 1.86941 12.8501 1.68771C12.4125 1.50601 11.9434 1.41248 11.4696 1.41248C10.9958 1.41248 10.5266 1.50601 10.089 1.68771C9.65145 1.86941 9.25403 2.13571 8.91958 2.47132L8.40625 2.99132L7.89291 2.47132C7.55846 2.13571 7.16105 1.86941 6.72346 1.68771C6.28587 1.50601 5.81672 1.41248 5.34291 1.41248C4.8691 1.41248 4.39995 1.50601 3.96237 1.68771C3.52478 1.86941 3.12737 2.13571 2.79291 2.47132C1.37958 3.88466 1.29291 6.27132 3.07291 8.08466L8.40625 13.418L13.7396 8.08466C15.5196 6.27132 15.4329 3.88466 14.0196 2.47132Z"
-            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </button>
       <div class="card_data">
@@ -36,21 +58,30 @@
         </div>
         <div class="card_stats">
           <div class="card_stats_item">
-            <img src="{{ url_for('static', filename='images/icono-banios.svg') }}" alt="" />
+            <img
+              src="{{ url_for('static', filename='images/icono-banios.svg') }}"
+              alt=""
+            />
             <p class="stats_item_p">{{ post.banios }} baño(s)</p>
           </div>
           <div class="card_stats_item">
-            <img src="{{ url_for('static', filename='images/icono-planos.svg') }}" alt="" />
+            <img
+              src="{{ url_for('static', filename='images/icono-planos.svg') }}"
+              alt=""
+            />
             <p class="stats_item_p">{{ post.habitaciones }} hab(s)</p>
           </div>
           <div class="card_stats_item">
-            <img src="{{ url_for('static', filename='images/icono-m2.svg') }}" alt="" />
+            <img
+              src="{{ url_for('static', filename='images/icono-m2.svg') }}"
+              alt=""
+            />
             <p class="stats_item_p">{{ post.metros_cuadrados }}m2</p>
           </div>
         </div>
       </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% endif %}
   </div>
 </main>
 <script>
@@ -66,8 +97,8 @@
 
   function toggleFavorite(postId) {
     fetch(`/toggle_favorite/${postId}`, {
-      method: 'POST',
-    }).then(response => {
+      method: "POST",
+    }).then((response) => {
       if (response.ok) {
         location.reload();
       }

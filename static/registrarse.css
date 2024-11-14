@@ -15,10 +15,6 @@
   border-radius: 10px;
 }
 
-.h1-subtitulo {
-  margin-bottom: 10px;
-}
-
 .h1-subtitulo p {
   color: rgb(101, 101, 101);
 }
@@ -41,7 +37,6 @@
   align-items: center;
   flex-direction: column;
   align-items: start;
-  margin-top: 15px;
 }
 
 .contraseña {
@@ -49,9 +44,6 @@
 }
 
 .texto-contraseña {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 15px;
 }
 
@@ -78,12 +70,6 @@
   margin-top: 3px;
 }
 
-.iniciar-sesion {
-  padding: 10px 137px;
-  margin-top: 20px;
-  width: 100%;
-}
-
 .registro {
   display: flex;
   justify-content: center;
@@ -103,14 +89,6 @@
   font-weight: 600;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: 700;
-}
-
 .links {
   display: flex;
   justify-content: space-between;
@@ -122,12 +100,16 @@
 
 .links a {
   color: rgb(101, 101, 101);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 14px;
   font-weight: 400;
 }
 
 .rectangulo {
   border-top: 1px solid gray;
   padding-top: 20px;
+}
+
+.button-registrarse {
+  width: 100%;
+  padding: 15px 30px;
+  font-weight: 700;
 }

@@ -1,14 +1,13 @@
-{% extends "layout.html" %}
-{% block titulo %} Real state - Registrarse {% endblock %}
-{% block content %}
+{% extends "layout.html" %} {% block titulo %} Real state - Registrarse {%
+endblock %} {% block content %}
 <main>
   <div class="container registrarse">
     <div class="h1-subtitulo">
       <h1>Registrarse</h1>
       <p>Ingresá tu email para crear una cuenta</p>
     </div>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var messages = {{ messages| tojson
@@ -18,57 +17,94 @@
       }
           });
     </script>
-    {% endif %}
-    {% endwith %}
+    {% endif %} {% endwith %}
     <form id="form-registrarse" method="POST" novalidate>
       <div class="nom-ape texto">
         <div>
           <label for="nombre">Nombre</label>
-          <input id="nombre" name="username" type="text" placeholder="Juan" class="input" required />
+          <input
+            id="nombre"
+            name="username"
+            type="text"
+            placeholder="Juan"
+            class="input"
+            required
+          />
           <div class="form-error" id="nombre-error"></div>
         </div>
         <div>
           <label for="apellido">Apellido</label>
-          <input id="apellido" name="apellido" type="text" placeholder="Pérez" class="input" required />
+          <input
+            id="apellido"
+            name="apellido"
+            type="text"
+            placeholder="Pérez"
+            class="input"
+            required
+          />
           <div class="form-error" id="apellido-error"></div>
         </div>
       </div>
       <div class="email texto">
         <label for="correo">Email</label>
-        <input id="correo" name="email" type="email" placeholder="usuario@falso.com" class="input correo" required />
+        <input
+          id="correo"
+          name="email"
+          type="email"
+          placeholder="usuario@falso.com"
+          class="input correo"
+          required
+        />
         <div class="form-error" id="correo-error"></div>
       </div>
       <div class="info-contraseña">
-        <div class="texto-contraseña texto">
+        <div class="texto-contraseña texto form-item">
           <label for="contraseña">Contraseña</label>
-          <input id="contraseña" name="password" type="password" placeholder="***********" class="input" required />
+          <input
+            id="contraseña"
+            name="password"
+            type="password"
+            placeholder="***********"
+            class="input"
+            required
+          />
           <div class="form-error" id="contraseña-error"></div>
         </div>
-        <div class="texto-contraseña texto">
+        <div class="texto-contraseña texto form-item">
           <label for="confirmar-contraseña">Confirmar Contraseña</label>
-          <input id="confirmar-contraseña" name="confirm_password" type="password" placeholder="***********"
-            class="input" required />
+          <input
+            id="confirmar-contraseña"
+            name="confirm_password"
+            type="password"
+            placeholder="***********"
+            class="input"
+            required
+          />
           <div class="form-error" id="confirmar-contraseña-error"></div>
         </div>
       </div>
-      <button type="submit" class="button registrarse">Registrarse</button>
+      <button type="submit" class="button button-registrarse">
+        Registrarse
+      </button>
     </form>
   </div>
 </main>
 
 <script>
   // Obtener elementos del formulario
-  const form = document.getElementById('form-registrarse');
-  const nombreInput = document.getElementById('nombre');
-  const apellidoInput = document.getElementById('apellido');
-  const emailInput = document.getElementById('correo');
-  const passwordInput = document.getElementById('contraseña');
-  const confirmPasswordInput = document.getElementById('confirmar-contraseña');
-  const nombreError = document.getElementById('nombre-error');
-  const apellidoError = document.getElementById('apellido-error');
-  const emailError = document.getElementById('correo-error');
-  const passwordError = document.getElementById('contraseña-error');
-  const confirmPasswordError = document.getElementById('confirmar-contraseña-error');
+  const form = document.getElementById("form-registrarse");
+  const nombreInput = document.getElementById("nombre");
+  const apellidoInput = document.getElementById("apellido");
+  const emailInput = document.getElementById("correo");
+  const passwordInput = document.getElementById("contraseña");
+  const confirmPasswordInput = document.getElementById("confirmar-contraseña");
+  const nombreError = document.getElementById("nombre-error");
+  const apellidoError = document.getElementById("apellido-error");
+  const emailError = document.getElementById("correo-error");
+  const passwordError = document.getElementById("contraseña-error");
+  const confirmPasswordError = document.getElementById(
+    "confirmar-contraseña-error"
+  );
 
   // Función para validar el email
   function validarEmail(email) {
@@ -77,49 +113,50 @@
   }
 
   // Manejar el evento de envío del formulario
-  form.addEventListener('submit', (event) => {
+  form.addEventListener("submit", (event) => {
     let isValid = true;
 
     // Resetear mensajes de error
-    nombreError.textContent = '';
-    apellidoError.textContent = '';
-    emailError.textContent = '';
-    passwordError.textContent = '';
-    confirmPasswordError.textContent = '';
+    nombreError.textContent = "";
+    apellidoError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
 
     // Validar el campo de nombre
     if (!nombreInput.value) {
-      nombreError.textContent = 'El campo de nombre es obligatorio.';
+      nombreError.textContent = "El campo de nombre es obligatorio.";
       isValid = false;
     }
 
     // Validar el campo de apellido
     if (!apellidoInput.value) {
-      apellidoError.textContent = 'El campo de apellido es obligatorio.';
+      apellidoError.textContent = "El campo de apellido es obligatorio.";
       isValid = false;
     }
 
     // Validar el campo de email
     if (!emailInput.value) {
-      emailError.textContent = 'El campo de email es obligatorio.';
+      emailError.textContent = "El campo de email es obligatorio.";
       isValid = false;
     } else if (!validarEmail(emailInput.value)) {
-      emailError.textContent = 'Por favor, ingresa un email válido.';
+      emailError.textContent = "Por favor, ingresa un email válido.";
       isValid = false;
     }
 
     // Validar el campo de contraseña
     if (!passwordInput.value) {
-      passwordError.textContent = 'El campo de contraseña es obligatorio.';
+      passwordError.textContent = "El campo de contraseña es obligatorio.";
       isValid = false;
     }
 
     // Validar el campo de confirmar contraseña
     if (!confirmPasswordInput.value) {
-      confirmPasswordError.textContent = 'El campo de confirmar contraseña es obligatorio.';
+      confirmPasswordError.textContent =
+        "El campo de confirmar contraseña es obligatorio.";
       isValid = false;
     } else if (confirmPasswordInput.value !== passwordInput.value) {
-      confirmPasswordError.textContent = 'Las contraseñas no coinciden.';
+      confirmPasswordError.textContent = "Las contraseñas no coinciden.";
       isValid = false;
     }
 

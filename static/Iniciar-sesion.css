@@ -18,11 +18,7 @@
 }
 
 #form-iniciar-sesion{
-  max-width: 350px;
-}
-
-.h1-subtitulo {
-  margin-bottom: 10px;
+  width: 100%;
 }
 
 .h1-subtitulo p {
@@ -48,7 +44,6 @@
 .texto-contraseña {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 15px;
 }
 
@@ -78,7 +73,6 @@
 }
 
 .iniciar-sesion {
-  padding: 12.5px;
   width: 100%;
   margin-top: 15px;
 }
@@ -121,7 +115,6 @@
 
 .links a {
   color: rgb(101, 101, 101);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
